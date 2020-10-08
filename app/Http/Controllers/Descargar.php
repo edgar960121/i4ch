@@ -166,7 +166,7 @@ class Descargar extends Controller
 
 
     public function obtieneReciboPDFHist(Request $request){///colores rosa y verde
-        //dd($request->uuid);
+        //Recibos por uuid
         if($request->uuid == ''){
             return \View::make('descargarpdf')->with(['message'=>['class'=>'alert-danger','normal'=>'Vacío']]);
         }else{
@@ -175,10 +175,8 @@ class Descargar extends Controller
             for($i=0;$i<count($folios);$i++){
                 $request->uuid=$folios[$i];
                 $respuesta = $this->generarReciboHist($request,'/recibo/obtenerReciboElectronicoGetUUID');
-                //dd($request->uuid=$folios[$i]);
                 //dd($respuesta);
                 if($respuesta['error']['code'] == '0'){
-                    //dd('existe');
                     $recibo = $respuesta['data'];
                     $recibo['idcdmx'] = $this->obtieneFolioAperturaHist(base64_encode(serialize($recibo)));
 

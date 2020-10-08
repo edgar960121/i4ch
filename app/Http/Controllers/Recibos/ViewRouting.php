@@ -96,6 +96,7 @@ class ViewRouting extends Controller
 	}
 
 	public function listadoRecibosEnlace(Request $request){
+		//Validacion para buscar recibo por RFC
 		//dd($request->rfc);
 		if(trim($request->rfc) == ''){
 			return \View::make('recibos.admin')->with(['message'=>['class'=>'alert-danger','normal'=>'Debes ingresar un RFC']]);
