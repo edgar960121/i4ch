@@ -1,0 +1,12 @@
+1:
+  ip: '10.1.130.57'
+  desc: ''
+  tipo: 'dev'
+2:
+  ip: '10.1.181.116'
+  desc: ''
+  tipo: 'prod'
+3:
+  ip: '10.1.181.11'
+  desc: ''
+  tipo: 'prod'

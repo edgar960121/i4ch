@@ -1,0 +1,13 @@
+.pane-main {
+  padding: $base-number*3;
+  .pane-header {
+    margin-bottom: $base-number*2;
+    color: $color-main;
+  }
+  .pane-body {
+    color: $base-color-40;
+    p {
+      font-size: 15px;
+    }
+  }
+}

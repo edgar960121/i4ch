@@ -1,0 +1,54 @@
+/**
+ * @author (SEFIN CDMX) Diego Maruri / dmaruri@finanzas.cdmx.gob.mx
+ * @stylesheet theme.css
+ * @parent styleguide
+ * @description
+ * Archivo de importación de plantilla y componentes.
+ *
+ */
+
+// Core
+@import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,700');
+@import "vendor/font-awesome/scss/font-awesome";
+
+// Basics
+@import "variables";
+@import "basics";
+
+@import "pages/layout-app";
+@import "pages/login";
+@import "pages/init";
+@import "pages/home/home";
+@import "pages/404";
+@import "pages/default";
+@import "pages/virtualoffice";
+
+
+// Components
+@import "components/backTop";
+@import "components/header";
+@import "components/sidebar-app";
+@import "components/sidebar-docs";
+@import "components/footer";
+@import "components/breadcrumb";
+@import "components/inline-edit";
+@import "components/user-box";
+@import "components/forms";
+@import "components/inner-box";
+
+
+
+// Pane
+@import "pane/pane";
+@import "pane/pane-main";
+@import "pane/pane-basic";
+@import "pane/pane-code";
+@import "pane/pane-frame";
+@import "pane/pane-images2";
+@import "pane/pane-color";
+@import "pane/pane-message";
+@import "pane/pane-site";

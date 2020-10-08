@@ -1,0 +1,53 @@
+.login-body {
+  background-color: #F3F6F9;
+  main {
+    background-color: #F3F6F9;
+    padding: $base-number*2;
+  }
+
+  .login-content {
+    width: 500px;
+    max-width: 100% !important;
+    margin: 0 auto;
+    padding: $base-number*7 0 0;
+    .pane {
+      margin-bottom: $base-number*3;
+    }
+    .form-group {
+      label {
+        font-weight: 600;
+        font-size: 16px;
+      }
+    }
+    .forgot {
+      margin-bottom: $base-number*3;
+      margin-top: -5px;
+      text-align: right;
+      font-size: 15px;
+    }
+    .aditional {
+      text-align: center;
+      a {
+        font-size: 15px;
+        color: $base-color-60;
+        display: block;
+        margin-bottom: $base-number*1.5;
+        &:first-of-type {
+          font-size: 16px;
+        }
+      }
+    }
+    .identity {
+      text-align: center;
+      margin-top: $base-number*4;
+      .item {
+        margin-bottom: $base-number*4;
+      }
+      .title {
+        h1 {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

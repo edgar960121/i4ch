@@ -1,0 +1,107 @@
+{% extends 'templates.app' %}
+
+{% block content %}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
+    <script type="text/javascript">
+
+        var user = {{user}};
+        var validar = "{{validar}}";
+        console.log(user);
+       // console.log(validar);
+      /*  if (user == 0 ){
+            Swal.fire({
+
+                title: "<p>Nivel de riesgo COVID-19</p>",
+                html: '<p><strong>De acuerdo en lo establecido en el ACUERDO POR EL QUE SE EXPIDEN LOS LINEAMIENTOS DE PROTECCIÓN A LA SALUD QUE DEBERÁN CUMPLIR LAS OFICINAS DE LA ADMINISTRACIÓN PÚBLICA DE LA CIUDAD DE MÉXICO EN EL MARCO DEL PLAN GRADUAL HACIA LA NUEVA NORMALIDAD, publicados en la Gaceta Oficial de la Ciudad de México N°359 Bis, de fecha 05 junio de 2020, en su numeral 6.6 PERSONAS SERVIDORAS PÚBLICAS QUE PERTENEZCAN A UN GRUPO EN SITUACIÓN DE RIESGO O VULNERABILIDAD, solicitamos que requisites esta breve encuesta para conocer si tienes algún padecimiento o factor de riesgo ante el COVID-19.</strong></p>',
+                type: 'info',
+                width: 500,
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Salir',
+                confirmButtonText: 'Adelante'
+            }).then((result) => {
+
+                if (result.value) {
+                    window.location = "{{url('/cuestionario')}}";
+                }else{
+                    return false;
+                }
+            })
+        }*/
+        //else{
+            /*
+           if(validar == 'PROCEDE'){
+               console.log(validar);
+               Swal.fire({
+                    title: "<p>Credencial</p>",
+                html: '<p><strong>Puedes tramitar aqui tu credencial</strong></p>',
+                type: 'info',
+                width: 500,
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Salir',
+                confirmButtonText: 'Adelante'
+
+               }).then((result) =>{
+                   if(result.value){
+                       window.location = "{{url('/usuario/inicio/credencial')}}";
+
+                   }else{
+                       console.log(validar);
+                       return false;
+                   }
+               })
+           }*/
+
+       // }
+         
+    </script>
+
+<div class="pane pane-basic">
+    <div class="pane-header">
+        <h2>Sitios relacionados</h2>
+    </div>
+    
+    <!--<div class="pane-header">
+        <a href="{{ url("/usuario/inicio/bajas") }}">Baja de usuarios</a> 
+    </div>-->
+    <!--<div class="pane-header">
+        <a href="{{ url("/usuario/inicio/estadisticaCredencial") }}">Estadísticas</a> 
+    </div>-->
+
+  
+    {% if message is defined %}
+        <div class="alert {{ message.class }}" role="alert">
+            {{ message.normal }}
+        </div>
+    {% endif %}
+</div>
+<div class="row">
+    {% for enlace in app.session.get('Session.enlaces') %}
+        <div class="col-md-6">
+            <div class="pane pane-basic pane-site">
+                <a href="{{ url(enlace.url) }}"{% if enlace.external %} target="_blank"{% endif %}>
+                    <div class="site-box row">
+                        <div class="icon">
+                            <img src="{{ asset('/assets/template/images/sections/related') }}/{{ enlace.imagen }}">
+                        </div>
+                        <div class="data">
+                            <div class="title">
+                                <b>
+                                    {{ enlace.titulo }}
+                                </b>
+                            </div>
+                            <div class="text">
+                                {{ enlace.descripcion }}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

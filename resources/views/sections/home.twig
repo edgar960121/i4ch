@@ -1,0 +1,71 @@
+{% extends 'templates.default' %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{url('/v2/vendor/owl/assets/owl.carousel.css')}}">
+    <link rel="stylesheet" href="{{url('/v2/vendor/owl/assets/owl.theme.default.min.css')}}">
+{% endblock %}
+
+{% block content %}
+<div id="home" class="home">
+    <section id="section-1" class="section">
+        <div class="section-content">
+            <!-- Contenido -->
+        </div>
+        <div class="section-cover" style="background-color: white;">
+            <img src="{{url('/assets/template/images/sections/home/5.png')}}" width="100%" alt="Portada">
+        </div>
+    </section>
+
+    <section id="section-3" class="section">
+        <div class="container">
+            <div class="section-information">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="information-item">
+                            <div class="title">
+                                <h3>Uso del sistema</h3>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-laptop"></i>
+                            </div>
+                            <div class="link">
+                                <a href="{{url('/acerca-de/uso-del-sistema')}}">Más información</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="information-item">
+                            <div class="title">
+                                <h3>Preguntas Frecuentes</h3>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-question-circle-o"></i>
+                            </div>
+                            <div class="link">
+                                <a href="{{url('/acerca-de/preguntas-frecuentes')}}">Más información</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="information-item">
+                            <div class="title">
+                                <h3>Quejas y sugerencias</h3>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-comments-o"></i>
+                            </div>
+                            <div class="link">
+                                <a href="{{url('/acerca-de/quejas-y-sugerencias')}}">Más información</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}

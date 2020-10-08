@@ -1,0 +1,56 @@
+<header id="header" class="header-main">
+    <div class="container">
+        <div class="header-logo">
+            <a href="{{url('/')}}">
+                <div class="header-logo-icon">
+                    <!--<i class="fa fa-laptop"></i>-->
+                    <img src="{{url('/assets/template/images/Logo_ch.svg')}}" width="80" alt="">
+                </div>
+                <div class="header-logo-name" style="margin-left:20px">
+                    <span>Capital Humano</span>
+                    <small >Secretaría de Administración y Finanzas</small>
+                </div>
+            </a>
+        </div>
+        <div class="header-show-nav">
+            <button class="btn btn-default" id="show-menu" type="button">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <div class="header-nav">
+            <ul>
+                <li>
+                    <a href="{{url('/')}}">
+                        Inicio
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="#!" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="name">Acerca de</span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="text-dark" href="{{url('/acerca-de/uso-del-sistema')}}">Uso del sistema</a></li>
+                        <li><a class="" href="{{url('/acerca-de/quejas-y-sugerencias')}}">Quejas y sugerencias</a></li>
+                        <li><a class="text-dark" href="{{url('/acerca-de/preguntas-frecuentes')}}">Preguntas frecuentes</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{{url('/login')}}">
+                        Iniciar sesión
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url('/servicio/registro') }}">
+                        <b>Registrarse</b>
+                    </a>
+                </li>
+                <!--<li>
+                    <a href="{{ url('https://aplicaciones.finanzas.cdmx.gob.mx/') }}">
+                        <b>Credencialización</b>
+                    </a>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+</header>

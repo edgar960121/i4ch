@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Encuesta de calidad del servicio</title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('/') }}assets/template/css/app.css?v={{ date().timestamp }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+</head>
+<body>
+<header id="header-app" class="header-app">
+    <div class="header-content">
+        <div class="header-logo">
+            <a href="{{url('/')}}">
+                <div class="header-logo-icon">
+                    <!--<i class="fa fa-laptop"></i>-->
+                    <img src="{{url('/assets/template/images/Logo_ch.svg')}}" width="80" alt="">
+                </div>
+                <div class="header-logo-name" style="margin-left:20px">
+                    <span class="hidden-xs">Capital Humano</span>
+                    <span class="visible-xs">Capital Humano</span>
+                    <small class="hidden-xs">Secretaría de Administración y Finanzas</small>
+                    <small class="visible-xs">SEFIN CDMX</small>
+                </div>
+            </a>
+        </div>
+        <div class="header-show-nav">
+            <button class="btn btn-default" id="show-sidebar" type="button">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <div class="header-options">
+            <ul>
+                <li class="dropdown user">
+                    <a  class="dropdown-toggle" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+                        <span class="pic"><img src="{{ asset('assets/template/images/avatar-b.jpg') }}" alt="User pic"></span>
+                        <span class="name">{{ [app.session.get('Session.nombres')]|ucwords}} <span class="hidden-xs">{{ [app.session.get('Session.paterno'),app.session.get('Session.materno')]|ucwords }}</span></span>
+                      
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<main class="row">
+
+
+
+	<div class="login-content">
+		<div class="pane pane-basic login-box">
+			<div class="pane-header">
+				<h2 align="center">Cuestionario de Benificiaros de UNILAB</h2>
+                <br>
+                <br>
+			</div>
+
+            <form  action= "{{ url('/dataEncuesta')}}" method="POST" >
+                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                 <input type="hidden" name="tipo" id="tipo" value="1">
+                <input type="hidden" name="modulo" id="modulo" value="10">
+
+            <div align="center">
+            <label>4. Tutores</label> <br> <br>
+            </div>
+
+            <div class="form-group">
+
+                <label>4.1 ¿Tienes o tuviste contacto con las y los tutores de UNILAB para recibir asesoría en tus estudios?</label><br>
+                <input onchange="sendAble()" type="radio" name="1_1" id="3_1" value="Sí" required>Sí<br>
+                <input onchange="sendEnable()" type="radio" name="1_1" id="3_1" value="No" required>No <strong class="btn-danger" >Si su respuesta es no, pulse en continuar.</strong>
+
+                <script type="text/javascript">function sendEnable() {
+                            document.getElementById("1.1").disabled = true;
+                            document.getElementById("1.2").disabled = true;
+                            document.getElementById("1.3").disabled = true;
+                            document.getElementById("1.4").disabled = true;
+                            document.getElementById("1.5").disabled = true;
+                            document.getElementById("1.6").disabled = true;
+                            document.getElementById("2.1").disabled = true;
+                            document.getElementById("2.2").disabled = true;
+                            document.getElementById("2.3").disabled = true;
+                            document.getElementById("2.4").disabled = true;
+                            document.getElementById("2.5").disabled = true;
+                            document.getElementById("2.6").disabled = true;
+                            document.getElementById("3.1").disabled = true;
+                            document.getElementById("3.2").disabled = true;
+                            document.getElementById("3.3").disabled = true;
+                            document.getElementById("3.4").disabled = true;
+                            document.getElementById("3.5").disabled = true;
+                            document.getElementById("3.6").disabled = true;
+                            document.getElementById("4.1").disabled = true;
+                            document.getElementById("4.2").disabled = true;
+                            document.getElementById("4.3").disabled = true;
+                            document.getElementById("4.4").disabled = true;
+                            document.getElementById("4.5").disabled = true;
+                            document.getElementById("4.6").disabled = true;
+                            document.getElementById("5.1").disabled = true;
+                            document.getElementById("5.2").disabled = true;
+                            document.getElementById("5.3").disabled = true;
+                            document.getElementById("5.4").disabled = true;
+                            document.getElementById("5.5").disabled = true;
+                            document.getElementById("5.6").disabled = true;
+                            document.getElementById("6.1").disabled = true;
+                            document.getElementById("6.2").disabled = true;
+                            document.getElementById("6.3").disabled = true;
+                            document.getElementById("6.4").disabled = true;
+                            document.getElementById("6.5").disabled = true;
+                            document.getElementById("6.6").disabled = true;
+                            document.getElementById("1.1").required = false;
+                            document.getElementById("1.2").required = false;
+                            document.getElementById("1.3").required = false;
+                            document.getElementById("1.4").required = false;
+                            document.getElementById("1.5").required = false;
+                            document.getElementById("1.6").required = false;
+                            document.getElementById("2.1").required = false;
+                            document.getElementById("2.2").required = false;
+                            document.getElementById("2.3").required = false;
+                            document.getElementById("2.4").required = false;
+                            document.getElementById("2.5").required = false;
+                            document.getElementById("2.6").required = false;
+                            document.getElementById("3.1").required = false;
+                            document.getElementById("3.2").required = false;
+                            document.getElementById("3.3").required = false;
+                            document.getElementById("3.4").required = false;
+                            document.getElementById("3.5").required = false;
+                            document.getElementById("3.6").required = false;
+                            document.getElementById("4.1").required = false;
+                            document.getElementById("4.2").required = false;
+                            document.getElementById("4.3").required = false;
+                            document.getElementById("4.4").required = false;
+                            document.getElementById("4.5").required = false;
+                            document.getElementById("4.6").required = false;
+                            document.getElementById("5.1").required = false;
+                            document.getElementById("5.2").required = false;
+                            document.getElementById("5.3").required = false;
+                            document.getElementById("5.4").required = false;
+                            document.getElementById("5.5").required = false;
+                            document.getElementById("5.6").required = false;
+                            document.getElementById("6.1").required = false;
+                            document.getElementById("6.2").required = false;
+                            document.getElementById("6.3").required = false;
+                            document.getElementById("6.4").required = false;
+                            document.getElementById("6.5").required = false;
+                            document.getElementById("6.6").required = false;           
+                        }
+
+                        function sendAble() {
+                            document.getElementById("1.1").required = true;
+                            document.getElementById("1.2").required = true;
+                            document.getElementById("1.3").required = true;
+                            document.getElementById("1.4").required = true;
+                            document.getElementById("1.5").required = true;
+                            document.getElementById("1.6").required = true;
+                            document.getElementById("2.1").required = true;
+                            document.getElementById("2.2").required = true;
+                            document.getElementById("2.3").required = true;
+                            document.getElementById("2.4").required = true;
+                            document.getElementById("2.5").required = true;
+                            document.getElementById("2.6").required = true;
+                            document.getElementById("3.1").required = true;
+                            document.getElementById("3.2").required = true;
+                            document.getElementById("3.3").required = true;
+                            document.getElementById("3.4").required = true;
+                            document.getElementById("3.5").required = true;
+                            document.getElementById("3.6").required = true;
+                            document.getElementById("4.1").required = true;
+                            document.getElementById("4.2").required = true;
+                            document.getElementById("4.3").required = true;
+                            document.getElementById("4.4").required = true;
+                            document.getElementById("4.5").required = true;
+                            document.getElementById("4.6").required = true;
+                            document.getElementById("5.1").required = true;
+                            document.getElementById("5.2").required = true;
+                            document.getElementById("5.3").required = true;
+                            document.getElementById("5.4").required = true;
+                            document.getElementById("5.5").required = true;
+                            document.getElementById("5.6").required = true;
+                            document.getElementById("6.1").required = true;
+                            document.getElementById("6.2").required = true;
+                            document.getElementById("6.3").required = true;
+                            document.getElementById("6.4").required = true;
+                            document.getElementById("6.5").required = true;
+                            document.getElementById("6.6").required = true; 
+                            document.getElementById("1.1").disabled = false;
+                            document.getElementById("1.2").disabled = false;
+                            document.getElementById("1.3").disabled = false;
+                            document.getElementById("1.4").disabled = false;
+                            document.getElementById("1.5").disabled = false;
+                            document.getElementById("1.6").disabled = false;
+                            document.getElementById("2.1").disabled = false;
+                            document.getElementById("2.2").disabled = false;
+                            document.getElementById("2.3").disabled = false;
+                            document.getElementById("2.4").disabled = false;
+                            document.getElementById("2.5").disabled = false;
+                            document.getElementById("2.6").disabled = false;
+                            document.getElementById("3.1").disabled = false;
+                            document.getElementById("3.2").disabled = false;
+                            document.getElementById("3.3").disabled = false;
+                            document.getElementById("3.4").disabled = false;
+                            document.getElementById("3.5").disabled = false;
+                            document.getElementById("3.6").disabled = false;
+                            document.getElementById("4.1").disabled = false;
+                            document.getElementById("4.2").disabled = false;
+                            document.getElementById("4.3").disabled = false;
+                            document.getElementById("4.4").disabled = false;
+                            document.getElementById("4.5").disabled = false;
+                            document.getElementById("4.6").disabled = false;
+                            document.getElementById("5.1").disabled = false;
+                            document.getElementById("5.2").disabled = false;
+                            document.getElementById("5.3").disabled = false;
+                            document.getElementById("5.4").disabled = false;
+                            document.getElementById("5.5").disabled = false;
+                            document.getElementById("5.6").disabled = false;
+                            document.getElementById("6.1").disabled = false;
+                            document.getElementById("6.2").disabled = false;
+                            document.getElementById("6.3").disabled = false;
+                            document.getElementById("6.4").disabled = false;
+                            document.getElementById("6.5").disabled = false;
+                            document.getElementById("6.6").disabled = false; 
+                                    
+                        }</script>
+
+
+            </div>
+
+            <table cellspacing="50" cellpadding="10" style="width: 100%" border="3">
+
+                    <tr>
+                    <th style="width: 45%" >4.2 En una escala del 1 al 6, en la que 1 es totalmente en desacuerdo y 6 totalmente de acuerdo, qué tan de acuerdo estás con las siguientes frases: <br>Las y los tutores de la UNILAB…</th>
+                    <th align="center" >Totalmente en desacuerdo</th> 
+                    <th colspan="4"></th>
+                    <th align="center">Totalmente de acuerdo</th>
+                    </tr>
+                    
+
+                    <tr>
+                    <td>a. dominan los contenidos que les corresponden.</td>
+                    <td align="center" ><input type="radio" name = "1_2a"id="1.1" value="1" > 1 <br></td>
+                    <td align="center" ><input type="radio" name = "1_2a"id="1.2" value="2" > 2 <br></td>
+                    <td align="center" ><input type="radio" name = "1_2a"id="1.3" value="3" > 3 <br></td>
+                    <td align="center" ><input type="radio" name = "1_2a"id="1.4" value="4" > 4 <br></td>
+                    <td align="center" ><input type="radio" name = "1_2a"id="1.5" value="5" > 5 <br></td>
+                    <td align="center" ><input type="radio" name = "1_2a"id="1.6" value="6" > 6 <br></td>
+                    </tr>
+
+                    <tr>
+                    <td> b. responden oportunamente tus dudas. </td>
+                    <td align="center" ><input type="radio" name = "1_2b"id="2.1" value="1" > 1 <br></td>
+                    <td align="center" ><input type="radio" name = "1_2b"id="2.2" value="2" > 2 <br></td>
+                    <td align="center" ><input type="radio" name = "1_2b"id="2.3" value="3" > 3 <br></td>
+                    <td align="center" ><input type="radio" name = "1_2b"id="2.4" value="4" > 4 <br></td>
+                    <td align="center" ><input type="radio" name = "1_2b"id="2.5" value="5" > 5 <br></td>
+                    <td align="center" ><input type="radio" name = "1_2b"id="2.6" value="6" > 6 <br></td>
+                    </tr>
+
+                    <tr>
+                    <td>c. responden con claridad tus dudas. </td>
+                    <td align="center" ><input type="radio" name = "1_2c"id="3.1" value="1" > 1 <br></td>
+                    <td align="center" ><input type="radio" name = "1_2c"id="3.2" value="2" > 2 <br></td>
+                    <td align="center" ><input type="radio" name = "1_2c"id="3.3" value="3" > 3 <br></td>
+                    <td align="center" ><input type="radio" name = "1_2c"id="3.4" value="4" > 4 <br></td>
+                    <td align="center" ><input type="radio" name = "1_2c"id="3.5" value="5" > 5 <br></td>
+                    <td align="center" ><input type="radio" name = "1_2c"id="3.6" value="6" > 6 <br></td>
+                    </tr>
+
+                    <tr>
+                    <td>d. responden con amabilidad tus dudas.</td>
+                    <td align="center" ><input type="radio" name = "1_2d"id="4.1" value="1" > 1 <br></td>
+                    <td align="center" ><input type="radio" name = "1_2d"id="4.2" value="2" > 2 <br></td>
+                    <td align="center" ><input type="radio" name = "1_2d"id="4.3" value="3" > 3 <br></td>
+                    <td align="center" ><input type="radio" name = "1_2d"id="4.4" value="4" > 4 <br></td>
+                    <td align="center" ><input type="radio" name = "1_2d"id="4.5" value="5" > 5 <br></td>
+                    <td align="center" ><input type="radio" name = "1_2d"id="4.6" value="6" > 6 <br></td>
+                    </tr>
+
+                    <tr>
+                    <td>   e. motivan tu aprendizaje. </td>
+                    <td align="center" ><input type="radio" name = "1_2e"id="5.1" value="1" > 1 <br></td>
+                    <td align="center" ><input type="radio" name = "1_2e"id="5.2" value="2" > 2 <br></td>
+                    <td align="center" ><input type="radio" name = "1_2e"id="5.3" value="3" > 3 <br></td>
+                    <td align="center" ><input type="radio" name = "1_2e"id="5.4" value="4" > 4 <br></td>
+                    <td align="center" ><input type="radio" name = "1_2e"id="5.5" value="5" > 5 <br></td>
+                    <td align="center" ><input type="radio" name = "1_2e"id="5.6" value="6" > 6 <br></td>
+                    </tr>
+
+                    <tr>
+                    <td> f. realizan comentarios y sugerencias sobre las actividades que desarrollas.</td>
+                    <td align="center" ><input type="radio" name = "1_2f"id="6.1" value="1" > 1 <br></td>
+                    <td align="center" ><input type="radio" name = "1_2f"id="6.2" value="2" > 2 <br></td>
+                    <td align="center" ><input type="radio" name = "1_2f"id="6.3" value="3" > 3 <br></td>
+                    <td align="center" ><input type="radio" name = "1_2f"id="6.4" value="4" > 4 <br></td>
+                    <td align="center" ><input type="radio" name = "1_2f"id="6.5" value="5" > 5 <br></td>
+                    <td align="center" ><input type="radio" name = "1_2f"id="6.6" value="6" > 6 <br></td>
+                    </tr>
+
+                </table>
+
+                <br>
+
+
+                
+
+                <div class="form-group">
+                    <button id="validador" type="submit" class="btn btn-main btn-group-justified">Continuar </button>
+                </div>
+
+            </form>
+
+            </div>
+			
+		</div>
+	</div>
+    <form action="{{url('/usuario/inicio')}}">
+    <input type="submit" class="btn btn-danger" value="Salir de la encuesta" />
+    </form>
+
+</main>
+<script type="text/javascript">
+    var idleTime = 0;
+    $(document).ready(function () {
+    //Increment the idle time counter every minute.
+    var idleInterval = setInterval(timerIncrement, 60000); // 1 minute
+
+    //Zero the idle timer on mouse movement.
+    $(this).mousemove(function (e) {
+        idleTime = 0;
+    });
+    $(this).keypress(function (e) {
+        idleTime = 0;
+    });
+});
+
+function timerIncrement() {
+    idleTime = idleTime + 1;
+    if (idleTime > 3) { // 20 minutes
+        window.location.href = "{{url('/usuario/logout')}}";
+    }
+}
+</script>
+</body>
+</html>

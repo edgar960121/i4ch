@@ -1,0 +1,45 @@
+{% extends 'templates.app' %}
+
+{% block content %}
+    <div class="pane pane-basic">
+        <div class="pane-header">
+            <h2>Tableros de Control CDMX</h2>
+            {% if message is defined %}
+                <div class="alert {{ message.class }}" role="alert">
+                    {{ message.normal }}
+                </div>
+            {% endif %}
+        </div>
+        <div class="pane-body">
+            {% if addProcess is defined %}
+                <a href="{{ url('/usuario/dashboard/process') }}" class="btn btn-primary">
+                    <i class="fa fa-plus"></i> Agregar proceso
+                </a>
+                <br><br><br>
+            {% endif %}
+            {% for process in processes %}
+                <div>
+                    {{ process.name }}
+                     <a href="{{ url('/usuario/dashboard/processDetail') }}" class="btn btn-primary">
+                            Ver detalle
+                        </a>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" 
+                             style="width: {{ process.percent }}%;" 
+                             aria-valuenow="{{ process.percent }}" 
+                             aria-valuemin="0" aria-valuemax="100">
+                            {{ process.percent }}%
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="pane-body">
+
+    </div>
+{% endblock %}
+
+{% block js %}
+    
+{% endblock %}

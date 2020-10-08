@@ -1,0 +1,221 @@
+{% extends 'recibos.master' %}
+
+{% block detalle %}
+    <style type="text/css">
+        .siguiente{
+             page-break-after: always; 
+        }
+    </style>
+  <div style="width:100%; display: block; ">
+        <table class="tg2">
+            <tr>
+                <td valign="middle" colspan="5" rowspan="2" style="border-right-width:1px; font-size:10px; padding:2px; text-align:center;">
+                    <strong>RECIBO COMPROBANTE DE LIQUIDACIÓN DE PAGO</strong>
+                </td>
+                <td colspan="1" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:6px 0px 6px 0px; text-align:center;">
+                    NUM. EMPLEADO
+                </td>
+                <td colspan="4" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px; text-align:center;">
+                    <strong>  {{ data.num_empleado }} </strong>
+                </td>
+                <td colspan="1" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px; text-align:center;">
+                    FOLIO FISCAL
+                </td>
+                <td colspan="10" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px; text-align:center;">
+                    <strong>  {{ data.folio_fiscal }} </strong>
+                </td>
+            </tr>
+            <tr>
+                <td style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:4px; text-align:center">QUINCENA.
+                </td>
+                <td colspan="4" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:4px; text-align: center">
+                    <strong> {{ data.quincena }} </strong>
+                </td>
+                <td colspan="1" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:4px; text-align: center">FECHA PAGO</td>
+                <td colspan="4" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:4px; text-align: center"><strong> 
+                {{ data.fechaPago }} </strong></td>
+                <td style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px; text-align:center;">
+                    ZONA PAGADORA
+                </td>
+                <td colspan="5" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px; text-align:center; ">
+                    <strong> {{ data.ZonaPagadora }}  </strong>
+                </td>
+            </tr>
+            <tr>
+                <td style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px 0px 0px; text-align:center;">
+                    NOMBRE
+                </td>
+                <td colspan="10" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:6px 0px 6px 0px; text-align:center">
+                    <strong> {{ data.nombre }}</strong>
+                </td>
+                <td colspan="4" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px; text-align:center;">
+                    C.U.R.P.
+                </td>
+                <td colspan="6" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px; text-align:center; ">
+                    <strong>  {{ data.curp }} </strong>
+                </td>
+            </tr>
+            <tr>
+                <td style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px;text-align:center;">R.F.C.</td>
+                <td colspan="2" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px; text-align:center;">
+                    <strong>  {{ data.rfc }} </strong>
+                </td>
+                <td colspan="3" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:12px 0px 0px 0px;text-align:center;">
+                   NUM. SEGURIDAD SOCIAL<strong>  &nbsp;&nbsp; </strong>
+                </td>
+                <td colspan="3" valign="middle" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px;text-align:center;">
+                <strong> {{ data.nss }} </strong></td>
+                <td width="50" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px;text-align:center;">
+                    HORARIO
+                </td>
+                <td width="40" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 4px 0px 4px; text-align: center"><strong> {{ data.horario }} </strong></td>
+                <td colspan="5" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px; text-align:center;">TIPO NOMBRAMIENTO</td>
+                <td colspan="5" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px  0px 0px; text-align:center;">
+                    <strong> {{ data.nombramiento }}  </strong>
+                </td>
+            </tr>
+            <tr>
+                <td height="18" colspan="2" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px 0px 4px; text-align: center">
+                     C&Oacute;DIGO DE PUESTO</td>
+                <td colspan="3" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px; text-align:center;">
+                    <strong>  {{ data.codigoPuesto }} </strong>
+                </td>
+                <td style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px; text-align:center;">CATEGOR&Iacute;A</td>
+                <td colspan="8" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px; text-align:center;"><strong> {{ data.categoria }}  </strong>                </td>
+                <td colspan="2" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px; text-align:center;">D&Iacute;AS PAGADOS</td>
+                <td colspan="5" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px; text-align:center;">
+                    <strong>  {{ data.diasPagados }} </strong>
+                </td>
+            </tr>
+            <tr>
+              <td height="18" colspan="2" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px 0px 4px; text-align: center">CATEGOR&Iacute;A AF&Iacute;N</td>
+              <td colspan="8" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px; text-align:center;"><strong> {{ data.categoriaAfin }}  </strong></td>
+              <td colspan="2" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px; text-align:center;">No. PLAZA</td>
+              <td style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px; text-align:center;"><strong> {{ data.num_plaza }}  </strong></td>
+              <td colspan="3" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px; text-align:center;">TIPO DE PAGO</td>
+              <td colspan="5" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px; text-align:center;"><strong> {{ data.tipoPago }}  </strong></td>
+            </tr>
+            <tr>
+              <td height="18" colspan="5" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px 0px 4px; text-align: center">PER&Iacute;ODO DE PAGO</td>
+              <td height="18" colspan="4" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px 0px 4px; text-align: center">FECHA INICIAL PAGO</td>
+              <td height="18" colspan="3" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px 0px 4px; text-align: center"><strong> {{ data.fechaInicialPago }}  </strong></td>
+              <td height="18" colspan="4" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px 0px 4px; text-align: center">FECHA FINAL PAGO</td>
+              <td colspan="5" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px; text-align:center; text-align: center"><strong> {{ data.fechaFinalPago }}  </strong></td>
+            </tr>
+            <tr>
+                <td colspan="21" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px; text-align:center; background-color:#e51287; color: #ffffff;">
+                    <strong>PERCEPCIONES</strong>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px; text-align:center;">
+                    FECHA
+                </td>
+                <td colspan="2" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px; text-align:center;">
+                    CONCEPTO
+                </td>
+                <td colspan="11" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px; text-align:center;">
+                    DESCRIPCIÓN
+                </td>
+                <td colspan="6" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px; text-align:center;">
+                    IMPORTE
+                </td>
+            </tr>
+             <tr>
+                <td colspan="2" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 4px 0px 4px; text-align:center; vertical-align: text-top;">
+                    
+                     
+                </td>
+                <td colspan="2" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 4px 0px 4px; text-align:center;">
+                    {{ data.conceptoPercepcion|raw }}
+                </td>
+                <td colspan="11" style="border-left-width:1px; font-size:10px; padding:0px 4px 0px 4px; text-align:justify;">
+                     {{ data.descripcionPercepcion|raw }}
+                </td>
+                <td colspan="6" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 4px 0px 4px; text-align:right;">
+                     {{ data.importePercepcion|raw }}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="15" style="border-left-width:1px; font-size:10px; padding:2px 4px 2px 0px; text-align:right;">
+                    TOTAL PERCEPCIONES
+                </td>
+                <td colspan="6" style=" border-right-width:1px; font-size:10px; padding:0px 0px 0px 4px; text-align:right;">
+                    <strong> {{ data.totalPercepcion }} </strong>
+                </td>
+            </tr>
+            <tr>
+                 <td colspan="21" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px; text-align:center; background-color:#e51287; color: #ffffff;">
+                    <strong>DEDUCCIONES</strong>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px; text-align:center;">
+                    TIPO PRESTAMO
+                </td>
+                <td colspan="2" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px; text-align:center;">
+                    CONCEPTO
+                </td>
+                <td colspan="11" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px; text-align:center;">
+                    DESCRIPCIÓN
+                </td>
+                <td colspan="6" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px; text-align:center;">
+                    IMPORTE
+                </td>
+            </tr>
+             <tr>
+                <td colspan="2" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:4px 4px 0px 4px; text-align:center;">
+                     {{ data.tipoPrestamo|raw }}
+                </td>
+                <td colspan="2" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:4px 4px 0px 4px; text-align:center;">
+                     {{ data.conceptoDeduccion|raw }}
+                </td>
+                <td colspan="7" style="border-left-width:1px; font-size:10px; padding:4px 4px 0px 4px; text-align:justify;">
+                     {{ data.descripcionDeduccion|raw }}
+                </td>
+                <td colspan="4" style="font-size:10px; padding:4px 4px 0px 4px; text-align:right;">
+                     {{ data.importeDetalleDeduccion|raw }}
+                </td>
+                <td colspan="6" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 4px 0px 4px; text-align:right;">
+                     {{ data.importeDeduccion|raw }}
+                </td>
+            </tr>
+            <tr>
+                 <td colspan="15" style="border-left-width:1px; font-size:10px; padding:2px 4px 2px 0px; text-align:right;">
+                    TOTAL DEDUCCIONES
+                </td>
+                <td colspan="6" style="border-right-width:1px; font-size:10px; padding:0px 4px 0px 0px; text-align:right;">
+                    <strong> {{ data[.totalDeduccion }} </strong>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="11" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:0px 0px0 px 0px; text-align:justify;"></td>
+                <td width="108" colspan="5" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:4px 4px 4px 4px; text-align:center; background-color:#e51287; color: #ffffff;">
+                   <strong> LIQUIDO A COBRAR</strong>
+                </td>
+                <td colspan="5" style="border-left-width:1px; border-right-width:1px; font-size:12px; padding:0px 0px 0px 0px; text-align:center;">
+                   <strong> $ {{ data.liquido_cobrar }}</strong>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="21" style="border-left-width:1px; border-right-width:1px; font-size:10px; padding:4px 6px 4px 6px;">
+                    <strong>  {{ data.mensaje }} </strong>
+                </td>
+            </tr>
+        </table>
+    </div>
+    {% if data.bandera > 15 %}
+    <div class="footer">
+      <hr>
+      <div style="width:260px; font-size:6px; text-align:left;float:left;">
+        Página <span class="pagenum"></span> 
+      </div>
+      <div style="font-size:6px; text-align:center;float:left; width:220px;">
+        ESTE DOCUMENTO ES UNA REPRESENTACIÓN IMPRESA DE UN CFDI
+      </div>
+      <div style="font-size:6px; text-align:right;float:left; width:200px;">
+        FECHA DE IMPRESIÓN : {{ now|date('d/m/Y') }}
+      </div>
+    </div>    <span class="siguiente"></span>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,32 @@
+.pane-site {
+  min-height: 163px;
+  > a {
+    display: block;
+    color: inherit;
+    .site-box {
+      margin: 0;
+      .icon {
+        float: left;
+        width: $base-number*15;
+        img {
+          width: 100%;
+        }
+      }
+      .data {
+        float: left;
+        width: calc(100% - 110px);
+        padding-left: $base-number*3;
+        .title {
+          font-size: 18px;
+          margin-bottom: 5px;
+          b {
+            font-weight: 600;
+          }
+        }
+        .text {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}

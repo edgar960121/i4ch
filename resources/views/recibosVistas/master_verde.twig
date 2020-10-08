@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+</head>
+  <style type="text/css">    
+@page {
+     margin: 20px;
+    }
+body{
+     font-family: Arial, Helvetica, sans-serif;
+ }
+.color{
+            background-color: #666666;
+            color: #ffffff; 
+            
+        }
+        .tg  {border-collapse:collapse;border-spacing:0; width: 100%;}
+        .tg td{font-family:Arial, sans-serif;font-size:8px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-top-width:1px;border-bottom-width:1px;}
+        .tg th{font-family:Arial, sans-serif;font-size:8px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-top-width:1px;border-bottom-width:1px;}
+        .tg2  {border: #31B700 3px solid; width: 100%; border-collapse: collapse}
+        
+        .tg2 td{border-color:  #31B700; font-family:Arial, sans-serif;font-size:12px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-top-width:1px;border-bottom-width:1px;}
+        .tg2 th{ border-color: #31B700;font-family:Arial, sans-serif;font-size:12px;font-weight:normal;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-top-width:1px;border-bottom-width:1px;}
+
+        
+        .tg .tg-yw4l{vertical-align:top}
+        .titulos_tabla{color:#666666 !important;}
+        .lateralizq{border-left-width:1px !important;}
+        .lateralder{border-right-width:1px !important;}
+        
+        .pagenum:before {
+            content: counter(page);
+        }   
+                     
+        .footer {
+        	bottom: 0px;
+            width: 100%;
+            text-align: center;
+            position: absolute;
+        }         
+  </style>        
+	<div style="width:100%; display: block; ">
+        <div style="text-align:center; font-size:10px;"></div><br>
+         <div style="width:100%;"> 
+            <div style="padding-left: 10px; text-align:left; float: left; width:19%; vertical-align: text-top"> 
+                <img src="{{ url('/images/Logo_Gobierno_Ciudad_de_Mexico_horizontal_color.jpg ') }}" style="width:130px;">
+            </div>
+            <div style="text-align:left; font-size:10px; float: left; width:69%; vertical-align: text-top">
+                {{ data.rfc_emisor }} <br> 
+                {{ data.nombre_emisor }} <br> 
+                {{ data.direccion_emisor1 }} <br> 
+                {{ data.direccion_emisor2 }} <br> 
+                {{ data.direccion_emisor3 }}
+            </div>
+         </div>
+         <br>
+         <br>      
+     </div>
+<br>
+    {% block detalle %}{% endblock %}                    
+    <br>
+   	<div style="width:100%; display: block; ">
+        <table class="tg">
+            <tr>
+                <td colspan="3" style="border-left-width:1px; border-right-width:1px; font-size:6px; padding:4px;"><font color="#666666"> FOLIO DE APERTURA</font><br>
+                   {{ data.idcdmx }}
+                </td>
+            </tr>
+            <tr>
+                <td style="border-left-width:1px; font-size:6px; padding:4px;"><font color="#666666"> LUGAR DE EXPEDICIÓN</font></td>
+                <td colspan="2" style="border-right-width:1px"> {{ data.lugar_expedicion }} </td>
+            </tr>
+            <tr>
+                <td colspan="3" style="border-left-width:1px; border-right-width:1px; font-size:6px; padding:4px;"><font color="#666666"> CADENA ORIGINAL DEL COMPLEMENTO DE CERTIFICACIÓN DIGITAL DEL SAT</font><br>
+                  {{ data.cadena_complemento_sat_print|raw }}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" style="border-left-width:1px; border-right-width:1px; font-size:6px; padding:4px;"><font color="#666666"> SELLO DIGITAL DEL SAT</font><br>
+                    {{ data.sello_digital_sat_print|raw }}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" style="border-left-width:1px; border-right-width:1px; font-size:6px; padding:4px;"><font color="#666666"> SELLO DIGITAL DEL EMISOR</font><br>
+                    {{ data.sello_digital_emisor_print|raw }}
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="5" style="border-left-width:1px;; font-size:10px; padding:2px; text-align:center;">
+                    <img src="data:image/png;base64, {{ qrCode }} ">
+                <td style="border-left-width:1px; border-right-width:1px; font-size:6px; padding:4px;"><font color="#666666"> FOLIO FISCAL</font></td>
+                <td style="border-left-width:1px; border-right-width:1px; font-size:6px; padding:4px;">{{ data.folio_fiscal }}<br></td>            
+            </tr>
+            <tr>
+                <td style="border-left-width:1px; border-right-width:1px; font-size:6px; padding:4px;"><font color="#666666"> FECHA Y HORA DE CERTIFICACIÓN</font></td>
+                <td style="border-left-width:1px; border-right-width:1px; font-size:6px; padding:4px;">{{ data.fecha_hora_certificacion }}</td>
+            </tr>
+            <tr>
+                <td style="border-left-width:1px; border-right-width:1px; font-size:6px; padding:4px;"><font color="#666666">No. DE SERIE DEL CERTIFICADO DEL SAT</font></td>
+                <td style="border-left-width:1px; border-right-width:1px; font-size:6px; padding:4px;">{{ data.num_serie_cer_sat }}</td>
+            </tr>
+            <tr>
+                <td style="border-left-width:1px; border-right-width:1px; font-size:6px; padding:4px;"><font color="#666666"> No. DE SERIE DEL CERTIFICADO DEL EMISOR</font></td>
+                <td style="border-left-width:1px; border-right-width:1px; font-size:6px; padding:4px;"> {{ data.num_serie_cer_emisor }} </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="border-left-width:1px; border-right-width:1px; font-size:6px; padding:4px;">
+                    <font color="#666666"> TIPO DE COMPROBANTE: </font> {{ data.tipo_comprobante }} |   <font color="#666666"> MONEDA: </font>  {{ data.moneda }} |   <font color="#666666"> FORMA DE PAGO: </font> {{ data.forma_pago }} <br>
+                    <font color="#666666"> MÉTODO DE PAGO: </font> {{ data.metodo_pago }} |   <font color="#666666"> RÉGIMEN FISCAL: {{ data.regimen_fiscal }} </font>  
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="footer">
+      <hr>
+      <div style="width:260px; font-size:6px; text-align:left;float:left;">
+        Página <span class="pagenum"></span> 
+      </div>
+      <div style="font-size:6px; text-align:center;float:left; width:220px;">
+        ESTE DOCUMENTO ES UNA REPRESENTACIÓN IMPRESA DE UN CFDI
+      </div>
+      <div style="font-size:6px; text-align:right;float:left; width:200px;">
+        FECHA DE IMPRESIÓN : {{ now|date('d/m/Y') }}
+      </div>
+    </div>
+</html>

@@ -1,0 +1,32 @@
+#main-app {
+  position: relative;
+  padding: 0;
+  .sidebar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: $base-number*30;
+    z-index: 2;
+    box-shadow: $custom-shadow;
+  }
+  .content {
+    padding-left: $base-number*30;
+    background-color: #F3F6F9;
+    .content-inner {
+      padding: $base-number*2;
+    }
+  }
+}
+#main-default {
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: $screen-xs-max){
+  #main-app {
+    .content {
+      padding: 0;
+    }
+  }
+}

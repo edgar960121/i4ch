@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Capital Humano - Página no encontrada</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/template/css/app.css?v={{ date().timestamp }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+</head>
+<body class="login-body">
+
+{% include 'partials.header' %}
+<main id="main-login" class="row">
+    <div id="page-404" class="">
+        <section id="section-1" class="section">
+            <div class="container">
+                <div class="page-default">
+                    <div class="section-title-giant">
+                        <h1>¡Lo sentimos!</h1>
+                    </div>
+                    <div class="section-title">
+                        <h1>No encontramos la página que buscas.</h1>
+                    </div>
+                    <div class="section-sub">
+                        <h3>Código de error: 404</h3>
+                    </div>
+                    <div class="section-links">
+                        <a href="{{ url('/usuario/inicio') }}">
+                            Volver a la página principal
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</main>
+{% include 'partials.footer' %}
+
+<div class="cover">
+    <img src="{{url('/images/decoration.png')}}" alt="">
+</div>
+
+<script type="text/javascript" src="{{url('/assets/template/js/jquery.js')}}"></script>
+<script type="text/javascript" src="{{url('/assets/template/js/bootstrap.min.js')}}"></script>
+<script type="text/javascript" src="{{url('/assets/template/js/ui-functions.js')}}"></script>
+
+</body>
+</html>

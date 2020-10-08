@@ -1,0 +1,19 @@
+.content {
+  .sidebar {
+    width: 210px;
+    left: 0;
+    top: 0;
+    height: 100%;
+    position: relative;
+    z-index: 0;
+    float: left;
+  }
+  .content-page {
+    background-color: #F3F6F9;
+    width: calc(100% - 210px);
+    float: left;
+    position: relative;
+    padding: $base-number*4;
+    min-height: 1080px;
+  }
+}

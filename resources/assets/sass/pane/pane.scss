@@ -1,0 +1,13 @@
+.pane {
+  background-color: $base-color-0;
+  transition: background-color 700ms;
+  box-shadow: $custom-shadow;
+  margin-bottom: $base-number*4;
+  border-radius: $base-number;
+  position: relative;
+  &.focus {
+    position: relative;
+    background-color: $base-color-5;
+    transition: background-color 50ms;
+  }
+}

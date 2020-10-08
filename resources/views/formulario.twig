@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Encuesta de calidad del servicio</title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('/') }}assets/template/css/app.css?v={{ date().timestamp }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+</head>
+<body>
+<header id="header-app" class="header-app">
+    <div class="header-content">
+        <div class="header-logo">
+            <a href="/">
+                <div class="header-logo-icon">
+                    <!--<i class="fa fa-laptop"></i>-->
+                    <img src="/assets/template/images/Logo_ch.svg" width="80" alt="">
+                </div>
+                <div class="header-logo-name" style="margin-left:20px">
+                    <span class="hidden-xs">Capital Humano</span>
+                    <span class="visible-xs">Capital Humano</span>
+                    <small class="hidden-xs">Secretaría de Administración y Finanzas</small>
+                    <small class="visible-xs">SEFIN CDMX</small>
+                </div>
+            </a>
+        </div>
+        <div class="header-show-nav">
+            <button class="btn btn-default" id="show-sidebar" type="button">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <div class="header-options">
+            <ul>
+                <li class="dropdown user">
+                    <a  class="dropdown-toggle" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+                        <span class="pic"><img src="{{ asset('assets/template/images/avatar-b.jpg') }}" alt="User pic"></span>
+                        <span class="name">{{ [app.session.get('Session.nombres')]|ucwords}} <span class="hidden-xs">{{ [app.session.get('Session.paterno'),app.session.get('Session.materno')]|ucwords }}</span></span>
+                      
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<main class="row">
+
+
+
+	<div class="login-content">
+		<div class="pane pane-basic login-box">
+			<div class="pane-header">
+				<h2 align="center">Cuestionario de Benificiaros de UNILAB</h2>
+                <br>
+                <br>
+			</div>
+
+            <form  method="POST" id="formulario-1_1">
+
+
+            <label>1.1.  En una escala del 1 al 6, en la que 1 es totalmente en desacuerdo y 6 totalmente de acuerdo, qué tan de acuerdo estás con las siguientes frases.
+
+               De los cursos realizados hasta el momento: </label> 
+
+             <div class="form-group">
+
+                <label> a. Los objetivos se vinculan con los estudios que elegí. </label> <br> <br>
+                <div align="justify">
+                <input type="radio" name="a" value="1" > Totalmente en desacuerdo <br>
+                <input type="radio" name="a" value="2" > 2 <br>
+                <input type="radio" name="a" value="3" > 3 <br>
+                <input type="radio" name="a" value="4" > 4 <br>
+                <input type="radio" name="a" value="5" > 5 <br>
+                <input type="radio" name="a" value="6" > Totalmente de acuerdo <br>
+
+                </div>
+
+             </div>
+
+           <div class="form-group">
+
+                <label> b. Los temas se desarrollan progresivamente. </label> <br> <br>
+                <div align="justify">
+                <input type="radio" name="b" value="1" > Totalmente en desacuerdo <br>
+                <input type="radio" name="b" value="2" > 2 <br>
+                <input type="radio" name="b" value="3" > 3 <br>
+                <input type="radio" name="b" value="4" > 4 <br>
+                <input type="radio" name="b" value="5" > 5 <br>
+                <input type="radio" name="b" value="6" > Totalmente de acuerdo <br>
+                </div>
+
+            </div>
+
+            <div>
+          
+
+    </div> 
+
+          <div class="form-group">
+
+                <label> c. Los ejercicios me resultan interesantes. </label> <br> <br>
+                <div align="justify">
+                <input type="radio" name="c" value="1" > Totalmente en desacuerdo <br>
+                <input type="radio" name="c" value="2" > 2 <br>
+                <input type="radio" name="c" value="3" > 3 <br>
+                <input type="radio" name="c" value="4" > 4 <br>
+                <input type="radio" name="c" value="5" > 5 <br>
+                <input type="radio" name="c" value="6" > Totalmente de acuerdo <br>
+                </div>
+
+            </div>
+
+                      <div class="form-group">
+
+                <label>d. Los ejercicios se vinculan con los temas.</label> <br> <br>
+                <div align="justify">
+                <input type="radio" name="d" value="1" > Totalmente en desacuerdo <br>
+                <input type="radio" name="d" value="2" > 2 <br>
+                <input type="radio" name="d" value="3" > 3 <br>
+                <input type="radio" name="d" value="4" > 4 <br>
+                <input type="radio" name="d" value="5" > 5 <br>
+                <input type="radio" name="d" value="6" > Totalmente de acuerdo <br>
+                </div>
+
+            </div>
+
+
+                      <div class="form-group">
+
+                <label>  e. El tiempo disponible para desarrollar cada curso es suficiente.  </label> <br> <br>
+                <div align="justify">
+                <input type="radio" name="e" value="1" > Totalmente en desacuerdo <br>
+                <input type="radio" name="e" value="2" > 2 <br>
+                <input type="radio" name="e" value="3" > 3 <br>
+                <input type="radio" name="e" value="4" > 4 <br>
+                <input type="radio" name="e" value="5" > 5 <br>
+                <input type="radio" name="e" value="6" > Totalmente de acuerdo <br>
+                </div>
+
+            </div>
+
+                      <div class="form-group">
+
+                <label>  f. Las herramientas de apoyo (audios, videos, lecturas, etc.) me ayudan a comprender los temas.   </label> <br> <br>
+                <div align="justify">
+                <input type="radio" name="f" value="1" > Totalmente en desacuerdo <br>
+                <input type="radio" name="f" value="2" > 2 <br>
+                <input type="radio" name="f" value="3" > 3 <br>
+                <input type="radio" name="f" value="4" > 4 <br>
+                <input type="radio" name="f" value="5" > 5 <br>
+                <input type="radio" name="f" value="6" > Totalmente de acuerdo <br>
+                </div>
+
+
+
+            </div>
+
+                <div class="form-group">
+
+                <label>g. Las actividades evaluables son fáciles de realizar. </label> <br> <br>
+                <div align="justify">
+                <input type="radio" name="g" value="1" > Totalmente en desacuerdo <br>
+                <input type="radio" name="g" value="2" > 2 <br>
+                <input type="radio" name="g" value="3" > 3 <br>
+                <input type="radio" name="g" value="4" > 4 <br>
+                <input type="radio" name="g" value="5" > 5 <br>
+                <input type="radio" name="g" value="6" > Totalmente de acuerdo <br>
+                </div>
+
+                
+
+            </div>
+
+            <div class="form-group">
+
+                <label>h. Las actividades evaluables permiten valorar mi aprendizaje sobre los temas.</label> <br> <br>
+                <div align="justify">
+                <input type="radio" name="h" value="1" > Totalmente en desacuerdo <br>
+                <input type="radio" name="h" value="2" > 2 <br>
+                <input type="radio" name="h" value="3" > 3 <br>
+                <input type="radio" name="h" value="4" > 4 <br>
+                <input type="radio" name="h" value="5" > 5 <br>
+                <input type="radio" name="h" value="6" > Totalmente de acuerdo <br>
+                </div>
+
+                
+
+            </div>
+
+            <div class="form-group">
+
+                <label>i. He logrado los objetivos que se plantea cada curso. </label> <br> <br>
+                <div align="justify">
+                <input type="radio" name="i" value="1" > Totalmente en desacuerdo <br>
+                <input type="radio" name="i" value="2" > 2 <br>
+                <input type="radio" name="i" value="3" > 3 <br>
+                <input type="radio" name="i" value="4" > 4 <br>
+                <input type="radio" name="i" value="5" > 5 <br>
+                <input type="radio" name="i" value="6" > Totalmente de acuerdo <br>
+                </div>
+
+                
+
+            </div>
+
+            <div class="form-group">
+
+                <label>j. Me siento satisfecha o satisfecho con los aprendizajes logrados. </label> <br> <br>
+                <div align="justify">
+                <input type="radio" name="j" value="1" > Totalmente en desacuerdo <br>
+                <input type="radio" name="j" value="2" > 2 <br>
+                <input type="radio" name="j" value="3" > 3 <br>
+                <input type="radio" name="j" value="4" > 4 <br>
+                <input type="radio" name="j" value="5" > 5 <br>
+                <input type="radio" name="j" value="6" > Totalmente de acuerdo <br>
+                </div>
+
+                
+
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-main btn-group-justified">Continuar <i class="fa fa-sign-in"></i></button>
+
+            </div>
+
+            </form>
+
+            </div>
+			
+		</div>
+	</div>
+
+</main>
+
+
+</body>
+</html>

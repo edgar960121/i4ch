@@ -1,0 +1,27 @@
+body {
+  &.virtualoffice {
+    #header-app {
+      .header-content {
+        .header-logo {
+          padding-left: 49px;
+        }
+        .header-show-nav {
+          display: block;
+        }
+      }
+    }
+    #main-app {
+      #sidebar-app {
+        display: none;
+        height: auto !important;
+        //width: 100% !important;
+        &.active {
+          display: block;
+        }
+      }
+      .content {
+        padding: 0;
+      }
+    }
+  }
+}

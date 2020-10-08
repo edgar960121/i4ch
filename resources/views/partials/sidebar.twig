@@ -1,0 +1,45 @@
+<div class="sidebar" id="sidebar-app">
+    <div class="sidebar-box">
+        <div class="nav">
+            <ul>
+                {% for li in app.session.get('Session.modulos') %}
+                    <li class="parent{% if '/' ~ li.group ~ '/' in app.session.get('Current.url') %} active{% endif %}">
+                        <a href="{{ url(li.url) }}">
+                            <i class="fa {{ li.img }}"></i>
+                            <span>{{ li.name }}</span>
+                        </a>
+                        <ul>
+                            {% for child in li.roles if child.menu %}
+                                <li class="child{% if app.session.get('Current.url') == child.url %} active{% endif %}">
+                                    <a href="{{ url(child.url) }}">
+                                        <!--<i class="fa fa-picture-o"></i>-->
+                                        <span>{{ child.name }}</span>
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endfor %}
+
+
+                <li class="parent{% if app.session.get('Current.url') == '/usuario/inicio' %} active{% endif %}">
+                    <a href="{{ url('/usuario/inicio') }}">
+                        <i class="fa fa-external-link"></i>
+                        <span>Sitios relacionados</span>
+                    </a>
+                    <ul>
+                        {% for enlace in app.session.get('Session.enlaces') %}
+                            <li class="child">
+                                <a href="{{ url(enlace.url) }}" {% if enlace.external %} target="_blank"{% endif %}>
+                                    <!--<i class="fa fa-picture-o"></i>-->
+                                    <span>{{ enlace.titulo }}</span>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

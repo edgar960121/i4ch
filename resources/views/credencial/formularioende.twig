@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Encuesta de calidad del servicio</title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('/') }}assets/template/css/app.css?v={{ date().timestamp }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+</head>
+<body>
+<header id="header-app" class="header-app">
+    <div class="header-content">
+        <div class="header-logo">
+            <a href="{{url('/')}}">
+                <div class="header-logo-icon">
+                    <!--<i class="fa fa-laptop"></i>-->
+                    <img src="{{url('/assets/template/images/Logo_ch.svg')}}" width="80" alt="">
+                </div>
+                <div class="header-logo-name" style="margin-left:20px">
+                    <span class="hidden-xs">Capital Humano</span>
+                    <span class="visible-xs">Capital Humano</span>
+                    <small class="hidden-xs">Secretaría de Administración y Finanzas</small>
+                    <small class="visible-xs">SEFIN CDMX</small>
+                </div>
+            </a>
+        </div>
+        <div class="header-show-nav">
+            <button class="btn btn-default" id="show-sidebar" type="button">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <div class="header-options">
+            <ul>
+                <li class="dropdown user">
+                    <a  class="dropdown-toggle" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+                        <span class="pic"><img src="{{ asset('assets/template/images/avatar-b.jpg') }}" alt="User pic"></span>
+                        <span class="name">{{ [app.session.get('Session.nombres')]|ucwords}} <span class="hidden-xs">{{ [app.session.get('Session.paterno'),app.session.get('Session.materno')]|ucwords }}</span></span>
+                      
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<main class="row">
+
+    <div class="content">
+
+        <div class="login-content">
+            
+        </div>
+
+      
+        
+    </div>
+ <script type="text/javascript">
+     Swal.fire({
+
+            title: "<h2>Estimada/o: <br> {{[app.session.get('Session.nombres')]|ucwords}} {{ [app.session.get('Session.paterno'),app.session.get('Session.materno')]|ucwords }}</h2>",
+            html: "<br><h4>¡Muchas gracias por tu tiempo!<br> Si cuentas con mayores comentarios, remítelos al correo <br> <h5>profesionalizacion@finanzas.cdmx.gob.mx</h5> <br><br <strong>La información capturada estará resguardada y tratada de conformidad a la 'Ley de datos personales en posesión de los sujetos obligados de la Ciudad de México'.</strong></h4>",
+            type: 'success',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Salir'
+
+            }).then((result) => {
+
+                if (result.value) {
+
+                    window.location = "{{url('/usuario/inicio')}}";
+                }else{
+
+                    window.location = "{{url('/usuario/inicio')}}";
+
+                }
+            });
+ </script>   
+
+</main>
+<script type="text/javascript">
+    var idleTime = 0;
+    $(document).ready(function () {
+    //Increment the idle time counter every minute.
+    var idleInterval = setInterval(timerIncrement, 60000); // 1 minute
+
+    //Zero the idle timer on mouse movement.
+    $(this).mousemove(function (e) {
+        idleTime = 0;
+    });
+    $(this).keypress(function (e) {
+        idleTime = 0;
+    });
+});
+
+function timerIncrement() {
+    idleTime = idleTime + 1;
+    if (idleTime > 3) { // 20 minutes
+        window.location.href = "{{url('/usuario/logout')}}";
+    }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+{% extends 'templates.app' %}
+
+{% block content %}
+	<div class="pane pane-basic">
+        <div class="pane-header">
+            <h2>Administrador de recibos</h2>
+        </div>
+        <form method="post" action="{{ url('/usuario/recibo/buscar') }}">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="form-group">
+                        <input name="rfc" class="form-control" placeholder="RFC">
+                    </div>
+                </div>
+                {#<div class="col-sm-5">
+                    <div class="form-group">
+                        <input name="curp" class="form-control" placeholder="CURP">
+                    </div>
+                </div>#}
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <button class="btn btn-default btn-group-justified"><i class="fa fa-search"></i> Buscar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <div id="append-content">
+
+    </div>
+{% endblock %}
+
+
+{% block js %}
+	
+{% endblock %}

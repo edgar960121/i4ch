@@ -1,0 +1,25 @@
+#page-404 {
+  .page-default {
+    padding: $base-number*15 0 $base-number*18;
+    color: $base-color-40;
+    .section-title-giant {
+      margin-bottom: $base-number*2;
+      h1 {
+        font-size: 63px;
+      }
+    }
+    .section-title {
+      margin-bottom: $base-number*4;
+      h1 {
+        font-size: 35px;
+      }
+    }
+    .section-sub {
+      margin-bottom: $base-number*2;
+      h3 {
+
+      }
+    }
+
+  }
+}

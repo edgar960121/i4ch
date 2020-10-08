@@ -1,0 +1,207 @@
+{% extends 'templates.app' %}
+
+{% block css %}
+    <link rel="stylesheet" href="/assets/easyautocomplete-1.3.5/easy-autocomplete.min.css">
+    <link rel="stylesheet" href="/assets/easyautocomplete-1.3.5/easy-autocomplete.themes.min.css">
+{% endblock %}
+
+{% block content %}
+    <div class="pane pane-basic">
+        <div class="pane-header">
+            <h2>Gestor de permisos</h2>
+        </div>
+        <div id="divMessage" style="display: none;" class="alert" role="alert"></div>
+        <div class="pane-body">
+            <div class="form-group">
+                <label for="usr">Usuario:</label>
+                <input type="text" id="usr" class="form-control">
+            </div>
+            <input type="hidden" id="cdmxId">
+
+            <div class="form-group">
+                <label for="modulos">Módulo:</label>
+                <select type="text" id="modulos" class="form-control">
+                    {% for modulo in modulos %}
+                        <option value="{{ modulo.group }}">{{ modulo.title }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="roles">Módulo:</label>
+                <select type="text" id="roles" name="roles" class="form-control">
+                    <option value="0">Permisos no disponibles</option>
+                </select>
+            </div>
+
+
+            <br>
+
+            <div class="inner-box" id="usrRoles"></div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block js %}
+    <script src="/assets/easyautocomplete-1.3.5/jquery.easy-autocomplete.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            function showUserRoles($cdmxId) {
+                $("#usrRoles").html('');
+
+                var params = {};
+                params['cdmxId'] = $cdmxId;
+                params['_token'] = '{{ csrf_token() }}';
+
+                $.ajax({
+                    url: '{{ url("/usuario/admin/usuariosRoles") }}',
+                    data: params,
+                    type: 'post',
+                    dataType: 'text',
+                    success: function (response) {
+                        console.log(params);
+                        $("#usrRoles").html(response);
+                    }
+                });
+            }
+
+            var options = {
+                url: function (phrase) {
+                    return '{{ url("/usuario/admin/usuarios") }}'
+                },
+                getValue: function (element) {
+                    return element.nombre;
+                },
+                ajaxSettings: {
+                    dataType: "json",
+                    method: "post",
+                    data: {}
+                },
+                preparePostData: function (data) {
+                    data.filtro = $("#usr").val();
+                    data._token = '{{ csrf_token() }}';
+                    return data;
+                },
+                requestDelay: 400,
+                template: {
+                    type: 'description',
+                    fields: {
+                        description: 'mail'
+                    }
+                },
+                list: {
+                    onClickEvent: function () {
+                        $("#cdmxId").val($("#usr").getSelectedItemData().cdmxId);
+                        showUserRoles($("#usr").getSelectedItemData().cdmxId);
+                    },
+                    onKeyEnterEvent: function(){
+                        $("#cdmxId").val($("#usr").getSelectedItemData().cdmxId);
+                        showUserRoles($("#usr").getSelectedItemData().cdmxId);
+                    },
+                    match: {
+                        enable: true
+                    }
+                },
+                //theme: '',
+                minCharNumber: 3,
+                placeholder: "Nombre completo, correo electrónico o CURP"
+            };
+
+            $("#usr").easyAutocomplete(options);
+
+            $("#modulos").change(function () {
+                $('#roles').prop('disabled', true);
+                $('#roles').empty();
+                $('#roles').append('<option value="0">Cargando</option>');
+
+                var params = {};
+                params['modulo'] = $(this).val();
+                params['_token'] = '{{ csrf_token() }}';
+                $.ajax({
+                    url: '{{ url("/usuario/admin/roles") }}',
+                    data: params,
+                    type: 'post',
+                    dataType: 'text',
+                    success: function (response) {
+                    
+                        $('#roles').empty();
+                        $('#roles').append(response);
+                        $('#roles').prop('disabled', false);
+                    }
+                });
+
+            });
+
+            $("#usr").click(function () {
+                $(this).val('');
+                $("#cdmxId").val('');
+                $("#usrRoles").html('');
+            });
+
+            $("#roles").change(function () {
+                if ($(this).val() != "0") {
+
+                    $("#divMessage").removeClass('alert-danger alert-success');
+                    $("#divMessage").slideUp();
+                    if ($.trim($("#cdmxId").val()) != '') {
+                        var params = {};
+                        params['cdmxId'] = $("#cdmxId").val();
+                        params['role'] = $(this).val();
+                        params['_token'] = '{{ csrf_token() }}';
+                        $.ajax({
+                            url: '{{ url("/usuario/admin/addRoles") }}',
+                            data: params,
+                            type: 'post',
+                            dataType: 'json',
+                            success: function (response) {
+                            
+                               showUserRoles($("#cdmxId").val());
+                                $("#divMessage").html(response.msg);
+                                $("#divMessage").addClass(response.class);
+                                $("#divMessage").slideDown();
+                                setTimeout(function () {
+                                    $("#divMessage").slideUp();
+                                }, 5000);
+                            }
+                        });
+                    }
+                }
+            });
+
+            $("#usrRoles").on('click', '.delRole', function (e) {
+                $("#divMessage").removeClass('alert-danger alert-success');
+                $("#divMessage").slideUp();
+                e.preventDefault();
+                var obj = $(this);
+
+                if (confirm('¿Estas seguro de borrar el permiso "' + obj.siblings('span').children('span').text() + '"?')) {
+
+                    var params = {};
+                    params['cdmxId'] = $("#cdmxId").val();
+                    params['role'] = $(this).children('input').val();
+                    params['_token'] = '{{ csrf_token() }}';
+                    $.ajax({
+                        url: '{{ url("/usuario/admin/delRoles") }}',
+                        data: params,
+                        type: 'post',
+                        dataType: 'json',
+                        success: function (response) {
+
+                            $("#divMessage").html(response.msg);
+                            $("#divMessage").addClass(response.class);
+
+                            $("#divMessage").slideDown();
+                            obj.parent().remove();
+
+                            setTimeout(function () {
+                                $("#divMessage").slideUp();
+                            }, 5000);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+{% endblock %}

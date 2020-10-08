@@ -1,0 +1,132 @@
+{% extends 'templates.app' %}
+
+{% block content %}
+    <div class="pane pane-basic">
+        <div class="pane-header">
+            <h2>Histórico recibos</h2>
+        </div>
+        <div class="pane-body">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="information">
+                        <ul class="">
+                            <li>
+                                <strong>Nombre:</strong>
+                                <span>{{ recibos.nombreReceptor }}</span>
+                            </li>
+                            <li>
+                                <strong>RFC:</strong>
+                                <span>{{ recibos.rfcReceptor }}</span>
+                            </li>
+                            {% if recibos.CURP|trim != '' %}
+                            <li>
+                                <strong>CURP:</strong>
+                                <span>{{ recibos.CURP }}</span>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div> 
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="">Ejercicio:</label>
+                        <select class="form-control" id="anio">
+                            {% for anio in range(now|date('Y')-3, now|date('Y')) %}
+                                <option value="{{ anio }}"
+                                        {% if recibos.anio == anio %}
+                                            selected
+                                        {% endif %}
+                                >{{ anio }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr> 
+                        <th>Fecha inicial de pago</th>
+                        <th>Fecha final de pago</th>
+                        <th>Total</th>
+                        
+                        <th width="70">VISTA PREVIA</th>
+                   <!--     <th width="70">PDF</th>  -->
+                        <th width="70">XML</th>
+                        <th width="70">ZIP</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for recibo in recibos.CFDI %}
+                        <tr>
+                            <td>{{ recibo.fechaInicialPago|date('d/m/Y') }}</td>
+                            <td>{{ recibo.fechaFinPago|date('d/m/Y') }}</td>
+                            <td>${{ recibo.total|number_format(2, '.', ',') }}</td>
+                            <td>
+                                <form target="_blank" action="{{ url('/historico/searchPdf') }}" method="post">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <input type="hidden" name="uuid" value="{{ recibo.UUID }}">
+                                    <input type="hidden" name="anio" value="{{ recibos.anio }}">
+                                    <button class="btn btn-default">
+                                         <i class="fa fa-file-pdf-o"></i>
+                                    </button>
+                                </form>
+                            </td>
+                     <!--       
+                            <td>
+                                <form target="_blank" action="{{ url('/usuario/recibo/pdf') }}" method="post">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <input type="hidden" name="uuid" value="{{ recibo.UUID }}">
+                                    <input type="hidden" name="anio" value="{{ recibos.anio }}">
+                                    <button class="btn btn-default">
+                                        <i class="fa fa-file-pdf-o"></i>
+                                    </button>
+                                </form>
+                            </td>
+                      -->
+                            <td>
+                                <form target="_blank" action="{{ url('/historico/usuario/recibo/xml') }}" method="post">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <input type="hidden" name="uuid" value="{{ recibo.UUID }}">
+                                    <input type="hidden" name="anio" value="{{ recibos.anio }}">
+                                    <button class="btn btn-default">
+                                        <i class="fa fa-file-code-o"></i>
+                                    </button>
+                                </form>
+                            </td>
+                            <td>
+                                <form target="_blank" action="{{ url('/historico/usuario/recibo/zip') }}" method="post">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <input type="hidden" name="uuid" value="{{ recibo.UUID }}">
+                                    <input type="hidden" name="anio" value="{{ recibos.anio }}">
+                                    <button class="btn btn-default">
+                                        <i class="fa fa-file-archive-o"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block js %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#anio").change(function () {
+                location.href = '{{ current_url("?anio=") }}' + $(this).val();
+            });
+        });
+    </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+   
+{% endblock %}

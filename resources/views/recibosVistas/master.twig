@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+</head>
+  <style type="text/css">    
+@page {
+     margin: 20px;
+    }
+body{
+     font-family: Arial, Helvetica, sans-serif;
+     background-color:lightgray;
+ }
+.color{
+            background-color: #666666;
+            color: #ffffff; 
+            
+        }             
+        .tg  {border-collapse:collapse;border-spacing:0; width: 100%;position: relative;}
+        .tg td{font-family:Arial, sans-serif;font-size:8px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-top-width:1px;border-bottom-width:1px;}
+        .tg th{font-family:Arial, sans-serif;font-size:8px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-top-width:1px;border-bottom-width:1px;}
+        .tg2  {border: #31B700 3px solid; width: 100%;max-width: 99%;position: relative; border-collapse: collapse}
+        
+        .tg2 td{border-color:  #0000ff; font-family:Arial, sans-serif;font-size:12px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-top-width:1px;border-bottom-width:1px;}
+        .tg2 th{ border-color: #0000ff;font-family:Arial, sans-serif;font-size:12px;font-weight:normal;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-top-width:1px;border-bottom-width:1px;}
+
+        .tg .tg-yw4l{vertical-align:top}
+        .titulos_tabla{color:#666666 !important;}
+        .lateralizq{border-left-width:1px !important;}
+        .lateralder{border-right-width:1px !important;}
+        
+        .pagenum:before {
+            content: counter(page);
+        }   
+                     
+        .footer {
+        	bottom: 0px;
+            width: 100%;
+            text-align: center;
+            position: absolute;
+        }
+        #a { 
+        	color: #9A0606; 
+        }
+        #boton1{
+            text-decoration: none;
+		    padding: 13px;
+		    font-weight: 600;
+		    font-size: 20px;
+		    color: #ffffff;
+		    border-radius: 6px;
+		    border: 2px solid #0016b0;
+		    background-color: #127FE5;
+        }                            
+        #boton2{
+        	    text-decoration: none;
+			    padding: 13px;
+			    font-weight: 600;
+			    font-size: 20px;
+			    color: #ffffff;
+			    background-color: #B40404;
+			    border-radius: 6px;
+			    border: 2px solid #000000;
+			    right: 70px;
+			    position: absolute;
+        }
+        #cuadroGeneral{
+        	width:97%; 
+        	display: block;
+        }
+        #cuadroprincipal{
+        	width:98%; 
+        	display: block;
+        }
+        body{
+        	background: -webkit-radial-gradient(white, black);
+  		    background: -moz-radial-gradient(white, black);
+		    border: 1px solid #333;
+        }
+  </style> 
+  
+  
+  
+<div class="row" >
+	<div class="col-sm-3" ></div>
+    <div class="col-sm-6" ></div>
+    <div class="col-sm-3" >
+    	<button onclick="javascript:cerrar();" class="btn btn-default pull-right" id="boton1">
+		 <!--   <a href="javascript:cerrar();"> -->
+		    	<i  class="fa fa-arrow-left"></i>
+		 <!--   </a> -->
+		</button>
+		<form target="_blank" action="{{ url('/historico/searchPdf') }}" method="post">
+		    <input type="hidden" name="_token" value="{{ tokenrequest }}" >
+		    <input type="hidden" name="uuid" value="{{ uuid }}">
+		    <input type="hidden" name="anio" value="{{ reciboanio }}">
+            <input type="hidden" name="collection" value="{{ collection }}">
+				  <button class="btn btn-default pull-right" id="boton2">
+				  		<i class="fa fa-file-pdf-o"></i>
+				  </button>
+	  	</form>
+    </div>	
+</div>
+
+<div class="row" >
+    <div class="col-sm-3" ></div>
+	    <div class="col-sm-6" style="background-color:white;min-width: 780px;">    
+		<div style="width:100%; display: block; "> 
+	        <div style="text-align:center; font-size:10px;"></div><br>
+	         <div style="width:770px;" > 
+	            <div class="pull-left" id="cabezeravista"  style="padding-left: 10px; text-align:left; float: left; width:19%; vertical-align: text-top"> 
+	                <img src="{{ url('/images/Logo_Gobierno_Ciudad_de_Mexico_horizontal_color.jpg') }}" style="width:130px;">
+	            </div>
+
+                <div class="pull-right" id="cabezeravista"  style="padding-right: 10px; float: right; width:19%; vertical-align: text-top"> 
+	                <img src="{{ url('/images/Logo_Gobierno_Ciudad_de_Mexico_horizontal_color.jpg') }}" style="width:130px;">
+	            </div>
+
+	            <div class="pull-left" id="cabezeragobierno"  style="text-align:left; font-size:10px; float: left; width:69%; vertical-align: text-top">
+
+	                {{ data.rfc_emisor }} <br> 
+	                {{ data.nombre_emisor }} <br> 
+	                {{ data.direccion_emisor1 }} <br> 
+	                {{ data.direccion_emisor2 }} <br> 
+	                {{ data.direccion_emisor3 }}
+	            </div>
+	         </div>
+	         <br>
+	         <br>      
+	     </div>
+	 </div>
+	 <div class="col-sm-3" ></div>
+</div>
+        
+<div class="row" >
+    <div class="col-sm-3" ></div>
+    <div class="col-sm-6" style="background-color:white;min-width: 780px;">      
+    {% block detalle %}{% endblock %}                    
+    <br>
+   <div id="cuadroGeneral">
+        <table class="tg">
+            <tr>
+                <td colspan="3" style="border-left-width:1px; border-right-width:1px; font-size:6px; padding:4px;"><font color="#666666"> FOLIO DE APERTURA</font><br>
+                   {{ data.idcdmx }}
+                </td>
+            </tr>
+            <tr>
+                <td style="border-left-width:1px; font-size:6px; padding:4px;"><font color="#666666"> LUGAR DE EXPEDICI?N</font></td>
+                <td colspan="2" style="border-right-width:1px"> {{ data.lugar_expedicion }} </td>
+            </tr>
+            <tr>
+                <td colspan="3" style="border-left-width:1px; border-right-width:1px; font-size:6px; padding:4px;"><font color="#666666"> CADENA ORIGINAL DEL COMPLEMENTO DE CERTIFICACI?N DIGITAL DEL SAT</font><br>
+                  {{ data.cadena_complemento_sat_print|raw }}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" style="border-left-width:1px; border-right-width:1px; font-size:6px; padding:4px;"><font color="#666666"> SELLO DIGITAL DEL SAT</font><br>
+                    {{ data.sello_digital_sat_print|raw }}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" style="border-left-width:1px; border-right-width:1px; font-size:6px; padding:4px;"><font color="#666666"> SELLO DIGITAL DEL EMISOR</font><br>
+                    {{ data.sello_digital_emisor_print|raw }}
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="5" style="border-left-width:1px;; font-size:10px; padding:2px; text-align:center;">
+                    <img src="data:image/png;base64, {{ qrCode }} ">
+                <td style="border-left-width:1px; border-right-width:1px; font-size:6px; padding:4px;"><font color="#666666"> FOLIO FISCAL</font></td>
+                <td style="border-left-width:1px; border-right-width:1px; font-size:6px; padding:4px;">{{ data.folio_fiscal }}<br></td>            
+            </tr>
+            <tr>
+                <td style="border-left-width:1px; border-right-width:1px; font-size:6px; padding:4px;"><font color="#666666"> FECHA Y HORA DE CERTIFICACI?N</font></td>
+                <td style="border-left-width:1px; border-right-width:1px; font-size:6px; padding:4px;">{{ data.fecha_hora_certificacion }}</td>
+            </tr>
+            <tr>
+                <td style="border-left-width:1px; border-right-width:1px; font-size:6px; padding:4px;"><font color="#666666">No. DE SERIE DEL CERTIFICADO DEL SAT</font></td>
+                <td style="border-left-width:1px; border-right-width:1px; font-size:6px; padding:4px;">{{ data.num_serie_cer_sat }}</td>
+            </tr>
+            <tr>
+                <td style="border-left-width:1px; border-right-width:1px; font-size:6px; padding:4px;"><font color="#666666"> No. DE SERIE DEL CERTIFICADO DEL EMISOR</font></td>
+                <td style="border-left-width:1px; border-right-width:1px; font-size:6px; padding:4px;"> {{ data.num_serie_cer_emisor }} </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="border-left-width:1px; border-right-width:1px; font-size:6px; padding:4px;">
+                    <font color="#666666"> TIPO DE COMPROBANTE: </font> {{ data.tipo_comprobante }} |   <font color="#666666"> MONEDA: </font>  {{ data.moneda }} |   <font color="#666666"> FORMA DE PAGO: </font> {{ data.forma_pago }} <br>
+                    <font color="#666666"> M?TODO DE PAGO: </font> {{ data.metodo_pago }} |   <font color="#666666"> R?GIMEN FISCAL: {{ data.regimen_fiscal }} </font>  
+                </td>
+            </tr>
+        </table>
+        <br><br>
+  </div>
+  
+  </div>
+	 <div class="col-sm-3" ></div>
+</div>  
+  
+</html>
+
+<script language="javascript" type="text/javascript"> 
+	function cerrar() { 
+	   window.open('','_parent',''); 
+	   window.close(); 
+	} 
+</script>
+

@@ -1,0 +1,281 @@
+{% extends 'templates.default' %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="page-default">
+        <div class="container">
+            <div class="col-sm-4 col-md-3">
+                <div class="sidebar-docs">
+                    <div class="sidebar-box">
+                        <ul class="groups no-list">
+                            <li class="pane group">
+                                <div class="title">Preguntas frecuentes</div>
+                                <ul class="items no-list">
+                                    <li><a class="scrollTo" href="#confirmo-cuenta">¿Cómo confirmo mi cuenta?</a></li>
+                                    <li><a class="scrollTo" href="#inicio-sesion">¿Cómo inicio sesión?</a></li>
+                                    <li><a class="scrollTo" href="#olvide-contrasena">¿Cómo recupero mi contraseña?</a>
+                                    </li>
+                                    <li><a class="scrollTo" href="#crear-cuenta-correo">¿Cómo crear una cuenta de correo
+                                            electrónico?</a></li>
+                                    <li><a class="scrollTo" href="#no-recuerdo-correo">No recuerdo el correo electrónico que está registrado</a></li>
+                                    <li><a class="scrollTo" href="#datos-no-coinciden">Mis datos registrados no
+                                            coinciden</a></li>
+                                    <li><a class="scrollTo" href="#no-puedo-ver-mis-recibos">No puedo ver mis
+                                            recibos</a></li>
+                                    <li><a class="scrollTo" href="#corregir-documentos">¿Cómo corregir mi información registrada?</a></li>
+                                    <li><a class="scrollTo" href="#cuenta-bloqueada">¿Cómo desbloqueo mi cuenta?</a></li>
+                                </ul>
+                            </li>
+                            <li class="pane group">
+                                <div class="title">Acerca de</div>
+                                <ul class="items no-list">
+                                    <li><a href="/acerca-de/uso-del-sistema">Uso del sistema</a></li>
+                                    <li><a href="/acerca-de/quejas-y-sugerencias">Quejas y sugerencias</a></li>
+                                    <li><a href="/acerca-de/preguntas-frecuentes">Preguntas frecuentes</a></li>
+                                </ul>
+                            </li>
+                            <li class="pane group">
+                                <div class="title">Sitios relacionados</div>
+                                <ul class="items no-list">
+                                   <!-- <li><a target="_blank" href="http://reporte.dgadp.cdmx.gob.mx/unilab/">Universidad
+                                            Laboral CDMX</a></li>
+                                    <li><a target="_blank" href="http://reporte.dgadp.cdmx.gob.mx/caci/">Centro de
+                                            Atención y Cuidado Infantil</a></li>-->
+                                    <li><a href="http://www.finanzas.cdmx.gob.mx/" target="_blank">Secretaría de Administración y Finanzas</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-8 col-md-9">
+                <div class="pane pane-basic pane-information">
+                    <div class="pane-header">
+                        <h4 class="supertitle">
+                            Acerca de
+                        </h4>
+                        <h1 class="title">
+                            Preguntas frecuentes
+                        </h1>
+                    </div>
+                    <div class="pane-body">
+                        <div class="question" id="confirmo-cuenta">
+                            <div class="subtitle">
+                                ¿Cómo confirmo mi cuenta?
+                            </div>
+                            <div class="content">
+                                <ol>
+                                    <li>
+                                        Posterior al registro de la cuenta recibirá un correo electrónico de confirmación.
+                                    </li>
+                                    <li>
+                                        Dentro del correo electrónico recibido, deberá dar clic en el botón <b>VALIDAR MI CUENTA</b>.
+                                    </li>
+                                    <li>
+                                        Se abrirá una nueva página del sistema en la cual deberá de dar clic en el botón <b>ACTIVAR</b> y su cuenta quedará confirmada.
+                                    </li>
+                                    <li>
+                                        Ingresar con el correo electrónico y contraseña proporcionados.
+                                    </li>
+                                    <li>
+                                        En caso de no haber recibido el correo electrónico de confirmación, podrá reenviarlo ingresando su correo electrónico en el apartado <b>NO RECIBI EL CORREO DE CONFIRMACIÓN</b> del inicio de sesión.
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="question" id="inicio-sesion">
+                            <div class="subtitle">
+                                ¿Cómo inicio sesión?
+                            </div>
+                            <div class="content">
+                                <ol>
+                                    <li>
+                                        Escriba el correo electrónico y contraseña proporcionada al registrarse en
+                                        Capital
+                                        Humano CDMX.
+                                    </li>
+                                    <li>
+                                        Debe contar con una cuenta de correo <b>activa</b>.
+                                    </li>
+                                    <li>
+                                        Si utiliza equipos públicos o compartidos (Oficina, Café internet), no olvide dar
+                                        click en cerrar sesion en su cuenta de Capital Humano CDMX, para que otros
+                                        usuarios
+                                        no puedan ver su información.
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="question" id="olvide-contrasena">
+                            <div class="subtitle">
+                                ¿Cómo recupero mi contraseña?
+                            </div>
+                            <div class="content">
+                                <p>
+                                    Sigue los siguientes pasos:
+                                </p>
+                                <ol>
+                                    <li>
+                                        Dirigase al siguiente enlace:
+                                        <a href="{{ url('/servicio/olvido') }}"><b>Recuperar mi contraseña</b></a>.
+                                    </li>
+                                    <li>
+                                        Escriba en el campo de texto la dirección del correo electrónico que utiliza
+                                        para
+                                        iniciar sesión en Capital Humano.
+                                    </li>
+                                    <li>
+                                        Haga click en el campo verificador <em>"No soy un robot"</em>.
+                                    </li>
+                                    <li>
+                                        Haga click en el botón de <em>"<i class="fa fa-envelope"></i> Enviar mensaje de
+                                            recuperación"</em>.
+                                    </li>
+                                    <li>
+                                        Recibirá por correo electrónico un mensaje con un enlace de recuperación.
+                                    </li>
+                                    <li>
+                                        Haga click en el enlace recibido en el mensaje.
+                                    </li>
+                                    <li>
+                                        Escriba en los campos una nueva contraseña y haga click en Guardar.
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="question" id="crear-cuenta-correo">
+                            <div class="subtitle">
+                                ¿Cómo crear una cuenta de correo electrónico?
+                            </div>
+                            <div class="content">
+                                <p>
+                                    Sigue los siguientes pasos:
+                                </p>
+                                <ol>
+                                    <li>
+                                        Se recomienda el uso de cuentas de correo de Gmail.
+                                    </li>
+                                    <li>
+                                        <a target="_blank" href="//mail.google.com"><b>Ir al portal de Gmail</b></a>.
+                                    </li>
+                                    <li>
+                                        Hacer click en la opción de <em>"Crear cuenta"</em>
+                                    </li>
+                                    <li>
+                                        Llenar el formulario de registro.
+                                    </li>
+                                    <li>
+                                        Se recomienda contar con teléfono celular para validar la autenticidad de la
+                                        cuenta.
+                                    </li>
+                                    <li>
+                                        Recuerda la <em>dirección de correo</em> y la <em>contraseña</em>
+                                        que asignaste ya que son los datos con los que entrarás a tu bozon de correo.
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="question" id="no-recuerdo-correo">
+                            <div class="subtitle">
+                                No recuerdo el correo electrónico que está registrado
+                            </div>
+                            <div class="content">
+                                <p>
+                                    Cuando no recuerdas cual es el correo que registraste para acceder o ya no tienes acceso a ese correo, en el <b>Centro de Atención a Usuarios</b> te pueden apoyar enviando un correo electrónico a <b>cau@finanzas.cdmx.gob.mx</b>, en un horario de 08:00 a 19:00 hrs.
+                                </p>
+                                <p>
+                                    Es necesario que el correo sea enviado desde la cuenta de correo electrónico con la que actualmente cuentas.
+                                </p>
+                            </div>
+                        </div><br>
+                        <div class="question" id="datos-no-coinciden">
+                            <div class="subtitle">
+                                Mis datos registrados no coinciden
+                            </div>
+                            <div class="content">
+                                <p>
+                                    Si sus datos no coinciden con su CURP o son erróneos puede hacer click en
+                                    <a target="_blank"
+                                       href="https://www.gob.mx/tramites/ficha/modificacion-o-correccion-de-la-curp/SEGOB171">
+                                        <b>este enlace</b></a>
+                                    en el cual se te indicará paso a paso como resolver tu problema.
+                                </p>
+                                <ol>
+                                    <li>
+                                        Se realiza una revisión como perfil de administrador para verificar datos del
+                                        ciudadano.
+                                    </li>
+                                    <li>
+                                        Se solicita al área administrativa la información de como se encuentra
+                                        registrado el
+                                        ciudadano.
+                                    </li>
+                                    <li>
+                                        Se verifica el estatus de timbrado, en caso de ser Pendiente, se cambia a
+                                        Cancelación
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="question" id="no-puedo-ver-mis-recibos">
+                            <div class="subtitle">
+                                No puedo ver mis recibos
+                            </div>
+                            <div class="content">
+                                <ol>
+                                    <li>
+                                        Verificar con el área administrativa correspondiente que la información con la que fueron expedidos los recibos sea la correcta.
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="question" id="corregir-documentos">
+                            <div class="subtitle">
+                                ¿Cómo corregir mi información registrada?
+                            </div>
+                            <div class="content">
+                                <ol>
+                                    <li>
+                                        Vaya al menú en la parte superior donde aparece su nombre, en la opción <em>"información de la cuenta"</em>.
+                                    </li>
+                                    <li>
+                                        En la pantalla le aparecerán todos los datos que puede modificar.
+                                    </li>
+                                    <li>
+                                        Oprima el lápiz (<i class="fa fa-pencil"></i>) para realizar la modificación.
+                                    </li>
+                                    <li>
+                                        Oprima (<i class="fa fa-check"></i>) para confirmar el cambio o (<i class="fa fa-close"></i>) para cancelar el cambio.
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="question" id="cuenta-bloqueada">
+                            <div class="subtitle">
+                                ¿Cómo desbloqueo mi cuenta?
+                            </div>
+                            <div class="content">
+                                <p>
+                                    La cuenta es bloqueada después de 5 intentos incorrectos,  para desbloquearla espere 2 minutos e intente nuevamente con el correo electrónico y contraseña correcta.
+                                </p>
+                                <p>
+                                    Si no recuerda la contraseña,  puede recuperarla en <a target="_blank"
+                                       href="{{ url('/servicio/olvido') }}">
+                                        <b>este enlace</b></a>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}

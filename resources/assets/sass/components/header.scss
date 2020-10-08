@@ -1,0 +1,255 @@
+#header {
+  border-bottom: $base-border;
+  background-color: $base-color-0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 4;
+  .container {
+    position: relative;
+    .header-logo {
+      float: left;
+      display: table;
+      padding: $base-number 0 0 $base-number;
+      a {
+        color: inherit;
+      }
+      > a > div {
+        float: left;
+      }
+      .header-logo-icon {
+        color: $color-main;
+        width: $base-number*6;
+        font-size: 30px;
+        text-align: center;
+      }
+      .header-logo-name {
+        padding-left: $base-number;
+        > span {
+          display: block;
+          font-size: 18px;
+          line-height: 100%;
+          font-weight: 600;
+          padding-top: 3px;
+        }
+        > small {
+          display: block;
+          font-size: 16px;
+          color: $base-color-50;
+        }
+      }
+    }
+    .header-show-nav {
+      display: none;
+      position: absolute;
+      right: $base-number;
+      top: $base-number;
+      button {
+        border: solid 2px $base-color;
+        border-radius: 0;
+      }
+    }
+    .header-nav {
+      display: block;
+      float: right;
+      > ul {
+        display: table;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        > li {
+          float: left;
+          font-size: 15px;
+          > a {
+            display: block;
+            padding: $base-number*2.5 $base-number*2;
+            color: $base-color-50;
+            b {
+              font-weight: 600;
+            }
+          }
+          ul {
+            color: $base-color-50;
+            //padding: 0;
+            overflow: hidden;
+            a {
+              padding: $base-number*1 $base-number*3;
+              color: $base-color-40;
+              &.text-dark {
+                color: $base-color-60;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#header-app {
+  border-bottom: $base-border;
+  background-color: $base-color-0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 4;
+  .header-content {
+    position: relative;
+    .header-logo {
+      float: left;
+      display: table;
+      padding: $base-number 0 0 $base-number;
+      a {
+        color: inherit;
+      }
+      > a > div {
+        float: left;
+      }
+      .header-logo-icon {
+        color: $color-main;
+        width: $base-number*6;
+        font-size: 30px;
+        text-align: center;
+      }
+      .header-logo-name {
+        padding-left: $base-number;
+        > span {
+          display: block;
+          font-size: 18px;
+          line-height: 100%;
+          font-weight: 600;
+          padding-top: 3px;
+        }
+        > small {
+          display: block;
+          font-size: 16px;
+          color: $base-color-50;
+        }
+      }
+    }
+    .header-show-nav {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      button {
+        height: 57px;
+        width: 45px;
+        border: none;
+        border-right: $base-border;
+        border-radius: 0;
+      }
+    }
+    .header-options {
+      display: block;
+      float: right;
+      > ul {
+        display: table;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        > li {
+          float: left;
+          font-size: 15px;
+          border-left: $base-border;
+          > a {
+            display: block;
+            padding: $base-number*2.5 $base-number*2;
+            color: $base-color-50;
+            .icon {
+
+            }
+            .name {
+
+            }
+          }
+          ul {
+            color: $base-color-50;
+            //padding: 0;
+            overflow: hidden;
+            a {
+              color: inherit;
+              padding: $base-number*1 $base-number*3;
+            }
+          }
+          &.user {
+            > a {
+              padding: 6px;
+              .pic {
+                img {
+                  border-radius: 50%;
+                  width: 45px;
+                  height: 45px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-xs-max) {
+  #header {
+    .container {
+      padding: 0;
+      .header-logo {
+        float: none;
+        padding-bottom: 5px;
+      }
+      .header-show-nav {
+        display: block;
+      }
+      .header-nav {
+        display: none;
+        float: none;
+        > ul {
+          border-top: $base-border;
+          display: block;
+          > li {
+            float: none;
+            border-bottom: $base-border;
+            &:last-of-type {
+              border: none;
+            }
+          }
+        }
+      }
+    }
+    &.active {
+      .container {
+        .header-nav {
+          display: block;
+        }
+      }
+    }
+  }
+
+  #header-app {
+    .header-content {
+      .header-logo {
+        padding-left: 49px;
+      }
+      .header-show-nav {
+        display: block;
+      }
+      .header-options {
+        > ul {
+          > li {
+            &.user {
+              > a {
+                .pic {
+                  img {
+                    width: 0;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

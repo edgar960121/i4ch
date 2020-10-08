@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Encuesta de calidad del servicio</title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('/') }}assets/template/css/app.css?v={{ date().timestamp }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+</head>
+<body>
+<header id="header-app" class="header-app">
+    <div class="header-content">
+        <div class="header-logo">
+            <a href="{{url('/')}}">
+                <div class="header-logo-icon">
+                    <!--<i class="fa fa-laptop"></i>-->
+                    <img src="{{url('/assets/template/images/Logo_ch.svg')}}" width="80" alt="">
+                </div>
+                <div class="header-logo-name" style="margin-left:20px">
+                    <span class="hidden-xs">Capital Humano</span>
+                    <span class="visible-xs">Capital Humano</span>
+                    <small class="hidden-xs">Secretaría de Administración y Finanzas</small>
+                    <small class="visible-xs">SEFIN CDMX</small>
+                </div>
+            </a>
+        </div>
+        <div class="header-show-nav">
+            <button class="btn btn-default" id="show-sidebar" type="button">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <div class="header-options">
+            <ul>
+                <li class="dropdown user">
+                    <a  class="dropdown-toggle" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+                        <span class="pic"><img src="{{ asset('assets/template/images/avatar-b.jpg') }}" alt="User pic"></span>
+                        <span class="name">{{ [app.session.get('Session.nombres')]|ucwords}} <span class="hidden-xs">{{ [app.session.get('Session.paterno'),app.session.get('Session.materno')]|ucwords }}</span></span>
+                      
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<main class="row">
+
+	<div class="login-content">
+		<div class="pane pane-basic login-box">
+			<div class="pane-header">
+				<h2 align="center">Necesidades de profesionalización en los trabajadores y trabajadoras del Gobierno de la Ciudad de México</h2>
+                <br>
+                <br>
+
+			</div>
+
+            <form  action= "{{ url('/dataEncuesta')}}" method="POST">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <input type="hidden" name="tipo" id="tipo" value="1">
+                <input type="hidden" name="modulo" id="modulo" value="4">
+
+                <div align="Center"><label>4. Valores asociados a la escolaridad</label> </div><br><br>
+
+                <div align="center" ><label><h5><strong>4.1. En una escala del 1 al 6, donde 1 es totalmente en desacuerdo y 6 totalmente de acuerdo, qué tan de acuerdo estás con que:</strong></h5></label> </div><br><br>
+
+
+
+                     
+
+                    <div class="form-group">
+                        <label><p>a. Las personas con mayor escolaridad tienen trabajos emocionalmente más satisfactorios.</p></label>
+                        <div align="justify">
+                            <input type="radio" name = "1_1a"id="8.1a" value="1" required> Totalmente en desacuerdo <br>
+                            <input type="radio" name = "1_1a"id="8.1a" value="2" required> 2 <br>
+                            <input type="radio" name = "1_1a"id="8.1a" value="3" required> 3 <br>
+                            <input type="radio" name = "1_1a"id="8.1a" value="4" required> 4 <br>
+                            <input type="radio" name = "1_1a"id="8.1a" value="5" required> 5 <br>
+                            <input type="radio" name = "1_1a"id="8.1a" value="6" required> Totalmente de acuerdo <br>
+                        </div>
+
+                    <div class="form-group">
+                        <br><label><p>b. Hay muchos trabajos para los que la educación no es necesaria.</p></label>
+                        <div align="justify">
+                            <input type="radio" name = "1_1b"id="8.1b" value="1" required> Totalmente en desacuerdo <br>
+                            <input type="radio" name = "1_1b"id="8.1b" value="2" required> 2 <br>
+                            <input type="radio" name = "1_1b"id="8.1b" value="3" required> 3 <br>
+                            <input type="radio" name = "1_1b"id="8.1b" value="4" required> 4 <br>
+                            <input type="radio" name = "1_1b"id="8.1b" value="5" required> 5 <br>
+                            <input type="radio" name = "1_1b"id="8.1b" value="6" required> Totalmente de acuerdo <br>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label><p>c. Las personas con mayor escolaridad tienen trabajos mejor pagados.</p></label>
+                        <div align="justify">
+                            <input type="radio" name = "1_1c"id="8.1c" value="1" required> Totalmente en desacuerdo <br>
+                            <input type="radio" name = "1_1c"id="8.1c" value="2" required> 2 <br>
+                            <input type="radio" name = "1_1c"id="8.1c" value="3" required> 3 <br>
+                            <input type="radio" name = "1_1c"id="8.1c" value="4" required> 4 <br>
+                            <input type="radio" name = "1_1c"id="8.1c" value="5" required> 5 <br>
+                            <input type="radio" name = "1_1c"id="8.1c" value="6" required> Totalmente de acuerdo <br>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label><p>d. La gente con mayor escolaridad es más eficiente en su trabajo.</p></label>
+                        <div align="justify">
+                            <input type="radio" name = "1_1d"id="8.1d" value="1" required> Totalmente en desacuerdo <br>
+                            <input type="radio" name = "1_1d"id="8.1d" value="2" required> 2 <br>
+                            <input type="radio" name = "1_1d"id="8.1d" value="3" required> 3 <br>
+                            <input type="radio" name = "1_1d"id="8.1d" value="4" required> 4 <br>
+                            <input type="radio" name = "1_1d"id="8.1d" value="5" required> 5 <br>
+                            <input type="radio" name = "1_1d"id="8.1d" value="6" required> Totalmente de acuerdo <br>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label><p>e. Tener mayor escolaridad es importante para la vida aunque no se utilicé en el trabajo ni te permita ganar más dinero.</p></label>
+                        <div align="justify">
+                            <input type="radio" name = "1_1e"id="8.1e" value="1" required> Totalmente en desacuerdo <br>
+                            <input type="radio" name = "1_1e"id="8.1e" value="2" required> 2 <br>
+                            <input type="radio" name = "1_1e"id="8.1e" value="3" required> 3 <br>
+                            <input type="radio" name = "1_1e"id="8.1e" value="4" required> 4 <br>
+                            <input type="radio" name = "1_1e"id="8.1e" value="5" required> 5 <br>
+                            <input type="radio" name = "1_1e"id="8.1e" value="6" required> Totalmente de acuerdo <br>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label><p>f. Para ascender en el trabajo importan más “las palancas” que la experiencia o la educación.</p></label>
+                        <div align="justify">
+                            <input type="radio" name = "1_1f"id="8.1f" value="1" required> Totalmente en desacuerdo <br>
+                            <input type="radio" name = "1_1f"id="8.1f" value="2" required> 2 <br>
+                            <input type="radio" name = "1_1f"id="8.1f" value="3" required> 3 <br>
+                            <input type="radio" name = "1_1f"id="8.1f" value="4" required> 4 <br>
+                            <input type="radio" name = "1_1f"id="8.1f" value="5" required> 5 <br>
+                            <input type="radio" name = "1_1f"id="8.1f" value="6" required> Totalmente de acuerdo <br>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label><p>g. Estudiar es importante para ascender en el trabajo y tener un mejor sueldo.</p></label>
+                        <div align="justify">
+                            <input type="radio" name = "1_1g"id="8.1g" value="1" required> Totalmente en desacuerdo <br>
+                            <input type="radio" name = "1_1g"id="8.1g" value="2" required> 2 <br>
+                            <input type="radio" name = "1_1g"id="8.1g" value="3" required> 3 <br>
+                            <input type="radio" name = "1_1g"id="8.1g" value="4" required> 4 <br>
+                            <input type="radio" name = "1_1g"id="8.1g" value="5" required> 5 <br>
+                            <input type="radio" name = "1_1g"id="8.1g" value="6" required> Totalmente de acuerdo <br>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label><p>h. En mi dependencia se debería promover el estudio para que las personas hagan mejor su trabajo.</p></label>
+                        <div align="justify">
+                            <input type="radio" name = "1_1h"id="8.1h" value="1" required> Totalmente en desacuerdo <br>
+                            <input type="radio" name = "1_1h"id="8.1h" value="2" required> 2 <br>
+                            <input type="radio" name = "1_1h"id="8.1h" value="3" required> 3 <br>
+                            <input type="radio" name = "1_1h"id="8.1h" value="4" required> 4 <br>
+                            <input type="radio" name = "1_1h"id="8.1h" value="5" required> 5 <br>
+                            <input type="radio" name = "1_1h"id="8.1h" value="6" required> Totalmente de acuerdo <br>
+                        </div>
+
+                    </div>
+
+                
+
+                <div class="form-group">
+                    <button id="validador" id="idValidador" type="submit" class="btn btn-main btn-group-justified">Continuar </button>
+                </div>
+
+                </div>
+
+            </form>
+
+        </div>
+			
+	</div>
+
+    <form action="{{url('/usuario/inicio')}}">
+    <input type="submit" class="btn btn-danger" value="Salir de la encuesta" />
+    </form>
+
+</main>
+<script type="text/javascript">
+    var idleTime = 0;
+    $(document).ready(function () {
+    //Increment the idle time counter every minute.
+    var idleInterval = setInterval(timerIncrement, 60000); // 1 minute
+
+    //Zero the idle timer on mouse movement.
+    $(this).mousemove(function (e) {
+        idleTime = 0;
+    });
+    $(this).keypress(function (e) {
+        idleTime = 0;
+    });
+});
+
+function timerIncrement() {
+    idleTime = idleTime + 1;
+    if (idleTime > 3) { // 20 minutes
+        window.location.href = "{{url('/usuario/logout')}}";
+    }
+}
+</script>
+
+</body>
+</html>

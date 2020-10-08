@@ -1,0 +1,10 @@
+{% if app.session.has('Current.message') %}
+	<div class="alert {{ app.session.get('Current.message.class') }}" role="alert">
+	  {{ app.session.get('Current.message.normal') }}
+	</div>
+{% endif %}
+<form method="post" action="{{ url('/servicio/cancelacion') }}">
+	<input type="hidden" name="_token" value="{{ csrf_token() }}">
+	<input type="hidden" name="activationCode" value="{{ request.activationCode }}">
+	<button>Cancelar cuenta</button>
+</form>

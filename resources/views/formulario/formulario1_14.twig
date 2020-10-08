@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Encuesta de calidad del servicio</title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('/') }}assets/template/css/app.css?v={{ date().timestamp }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+</head>
+<body>
+<header id="header-app" class="header-app">
+    <div class="header-content">
+        <div class="header-logo">
+            <a href="{{url('/')}}">
+                <div class="header-logo-icon">
+                    <!--<i class="fa fa-laptop"></i>-->
+                    <img src="{{url('/assets/template/images/Logo_ch.svg')}}" width="80" alt="">
+                </div>
+                <div class="header-logo-name" style="margin-left:20px">
+                    <span class="hidden-xs">Capital Humano</span>
+                    <span class="visible-xs">Capital Humano</span>
+                    <small class="hidden-xs">Secretaría de Administración y Finanzas</small>
+                    <small class="visible-xs">SEFIN CDMX</small>
+                </div>
+            </a>
+        </div>
+        <div class="header-show-nav">
+            <button class="btn btn-default" id="show-sidebar" type="button">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <div class="header-options">
+            <ul>
+                <li class="dropdown user">
+                    <a  class="dropdown-toggle" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+                        <span class="pic"><img src="{{ asset('assets/template/images/avatar-b.jpg') }}" alt="User pic"></span>
+                        <span class="name">{{ [app.session.get('Session.nombres')]|ucwords}} <span class="hidden-xs">{{ [app.session.get('Session.paterno'),app.session.get('Session.materno')]|ucwords }}</span></span>
+                      
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<main class="row">
+
+	<div class="login-content">
+		<div class="pane pane-basic login-box">
+			<div class="pane-header">
+				<h2 align="center">Necesidades de profesionalización en los trabajadores y trabajadoras del Gobierno de la Ciudad de México</h2>
+                <br>
+                <br>
+
+			</div>
+
+            <form  action= "{{ url('/dataEncuesta')}}" method="POST" >
+                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                 <input type="hidden" name="tipo" id="tipo" value="1">
+                <input type="hidden" name="modulo" id="modulo" value="14">
+
+                <div align="Center"><label>7. Autovaloración de la profesionalización para el desempeño laboral</label> </div><br><br>
+
+
+
+                    <label></label> 
+
+                    <div class="form-group">
+
+                        <label>7.1. ¿Consideras que tienes todos los conocimientos o habilidades necesarias para desempeñar tu trabajo?</label> <br> <br>
+                        <div align="justify">
+                            <input type="radio" name="1_1" id="7.1" value="si" required>Sí<br>
+                            <input type="radio" name="1_1" id="7.1" value="no" required>No<br>
+                        </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>7.2. ¿Los conocimientos que tienes te dan seguridad para hacer tu trabajo?</label> <br> <br>
+                    <div align="justify">
+                        <input type="radio" name="1_2" id="7.2" value="si" required> Sí<br>
+                        <input type="radio" name="1_2" id="7.2" value="no" required> No<br>
+                    </div>
+
+                </div>
+
+                <div></div>
+
+                <div class="form-group">
+
+                    <label>7.3. De las siguientes opciones ¿cuál consideras que mejor podría ayudarte a desempeñar tu trabajo?</label> <br> <br>
+                    <div align="justify">
+                        <input type="radio" name="1_3" id="7.3" value="Contar con cursos de capacitación." required>Contar con cursos de capacitación.<br>
+                        <input type="radio" name="1_3" id="7.3" value="Obtener el certificado o título de mi ultimo grado de estudios" required> Obtener el certificado o título<br>
+                        <input type="radio" name="1_3" id="7.3" value="Certificar alguna habilidad o competencia profesional específica" required> Certificar alguna habilidad o competencia profesional específica.<br>
+                        <input type="radio" name="1_3" id="7.3" value="Otra" required> Otra<br>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>7.4 ¿Has recibido algún curso de capacitación en 2018-2019 ?</label> <br> <br>
+                    <div align="justify">
+                        <input type="radio" name="1_4" id="7.4" value="si" required> Sí<br>
+                        <input type="radio" name="1_4" id="7.4" value="no" required> No<br>
+                    </div>
+
+                </div>
+
+                <label>7.5. En una escala del 1 al 6, en la que 1 es nada útil y 6 es muy útil.</label><br><br>
+
+
+                <div class="form-group">
+
+                    <label>¿Qué tan útil consideras los cursos de capacitación recibidos en el último año, para el desempeño de tu trabajo?</label> <br> <br>
+                    <div align="justify">
+                            <input type="radio" name = "1_5"id="7.5" value="1" required> Nada útil <br>
+                            <input type="radio" name = "1_5"id="7.5" value="2" required> 2 <br>
+                            <input type="radio" name = "1_5"id="7.5" value="3" required> 3 <br>
+                            <input type="radio" name = "1_5"id="7.5" value="4" required> 4 <br>
+                            <input type="radio" name = "1_5"id="7.5" value="5" required> 5 <br>
+                            <input type="radio" name = "1_5"id="7.5" value="6" required> Muy útil <br>
+
+                    </div>
+
+                </div>    
+
+                <label>7.6 En una escala del 1 al 6, en la que 1 es nada satisfecha/o y 6 es muy satisfecha/o </label><br><br>
+
+
+                <div class="form-group">
+
+                    <label>¿Qué tan satisfecha/o estás con los cursos de capacitación recibidos?</label> <br> <br>
+                    <div align="justify">
+                            <input type="radio" name = "1_6"id="7.6" value="1" required> Nada Satisfecho<br>
+                            <input type="radio" name = "1_6"id="7.6" value="2" required> 2 <br>
+                            <input type="radio" name = "1_6"id="7.6" value="3" required> 3 <br>
+                            <input type="radio" name = "1_6"id="7.6" value="4" required> 4 <br>
+                            <input type="radio" name = "1_6"id="7.6" value="5" required> 5 <br>
+                            <input type="radio" name = "1_6"id="7.6" value="6" required> Muy Satisfecho <br>
+
+                    </div>
+
+                </div>       
+
+                
+
+                <div class="form-group">
+                    <button id="validador" type="submit" class="btn btn-main btn-group-justified">Continuar </button>
+                </div>
+
+            </form>
+
+        </div>
+			
+	</div>
+
+    <form action="{{url('/usuario/inicio')}}">
+    <input type="submit" class="btn btn-danger" value="Salir de la encuesta" />
+    </form>
+
+</main>
+<script type="text/javascript">
+    var idleTime = 0;
+    $(document).ready(function () {
+    //Increment the idle time counter every minute.
+    var idleInterval = setInterval(timerIncrement, 60000); // 1 minute
+
+    //Zero the idle timer on mouse movement.
+    $(this).mousemove(function (e) {
+        idleTime = 0;
+    });
+    $(this).keypress(function (e) {
+        idleTime = 0;
+    });
+});
+
+function timerIncrement() {
+    idleTime = idleTime + 1;
+    if (idleTime > 3) { // 20 minutes
+        window.location.href = "{{url('/usuario/logout')}}";
+    }
+}
+</script>
+</body>
+</html>

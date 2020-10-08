@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Encuesta de calidad del servicio</title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('/') }}assets/template/css/app.css?v={{ date().timestamp }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+</head>
+<body>
+<header id="header-app" class="header-app">
+    <div class="header-content">
+        <div class="header-logo">
+            <a href="{{url('/')}}">
+                <div class="header-logo-icon">
+                    <!--<i class="fa fa-laptop"></i>-->
+                    <img src="{{url('/assets/template/images/Logo_ch.svg')}}" width="80" alt="">
+                </div>
+                <div class="header-logo-name" style="margin-left:20px">
+                    <span class="hidden-xs">Capital Humano</span>
+                    <span class="visible-xs">Capital Humano</span>
+                    <small class="hidden-xs">Secretaría de Administración y Finanzas</small>
+                    <small class="visible-xs">SEFIN CDMX</small>
+                </div>
+            </a>
+        </div>
+        <div class="header-show-nav">
+            <button class="btn btn-default" id="show-sidebar" type="button">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <div class="header-options">
+            <ul>
+                <li class="dropdown user">
+                    <a  class="dropdown-toggle" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+                        <span class="pic"><img src="{{ asset('assets/template/images/avatar-b.jpg') }}" alt="User pic"></span>
+                        <span class="name">{{ [app.session.get('Session.nombres')]|ucwords}} <span class="hidden-xs">{{ [app.session.get('Session.paterno'),app.session.get('Session.materno')]|ucwords }}</span></span>
+                      
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<main class="row">
+
+	<div class="login-content">
+		<div class="pane pane-basic login-box">
+			<div class="pane-header">
+				<h2 align="center">Necesidades de profesionalización en los trabajadores y trabajadoras del Gobierno de la Ciudad de México</h2>
+                <br>
+                <br>
+
+			</div>
+
+            <form  action= "{{ url('/dataEncuesta')}}" method="POST">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <input type="hidden" name="tipo" id="tipo" value="1">
+                <input type="hidden" name="modulo" id="modulo" value="16">
+
+                <div align="Center"><label>9. Conocimiento de la oferta educativa para las y los trabajadores del Gobierno de la CDMX</label> </div><br><br>
+
+
+
+                    <label></label> 
+
+                    <div class="form-group">
+
+                        <label>9.1 ¿Conoces o has oído hablar de apoyos para que las y los trabajadores del Gobierno de la Ciudad de México continúen sus estudios?</label> <br> <br>
+                        <div align="justify">
+                            <input type="radio" name="1_1" id="9.1" value="Si" required>Sí<br>
+                            <input type="radio" name="1_1" id="9.1" value="No" required> No <label class="btn-danger">Si su respuesta ha sido no de click en finalizar.</label><br>
+                        </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>9.2 ¿Los apoyos otorgados consisten en…</label> <br> <br>
+                    <div align="justify">
+                            <label>a. ¿El pago de la colegiatura?</label><br>
+
+                            <input type="radio" name="1_2a" id="9.2" value="Si" >Sí<br>
+                            <input type="radio" name="1_2a" id="9.2" value="No" >No<br>
+                            <input type="radio" name="1_2a" id="9.2" value="No se" >No sé<br>
+                         
+                    </div>
+
+                </div>
+
+                 <div class="form-group">
+
+                    <div align="justify">
+                            <label>b. ¿Incremento salarial?</label><br>
+
+                            <input type="radio" name="1_2b" id="9.2b" value="Si" >Sí<br>
+                            <input type="radio" name="1_2b" id="9.2b" value="No" >No<br>
+                            <input type="radio" name="1_2b" id="9.2b" value="No se" >No sé<br>
+                         
+                    </div>
+
+                </div>
+
+                  <div class="form-group">
+
+                    <div align="justify">
+                            <label>c. ¿destinar parte del horario laboral para el estudio?</label><br>
+
+                            <input type="radio" name="1_2c" id="9.2c" value="Si" >Sí<br>
+                            <input type="radio" name="1_2c" id="9.2c" value="No" >No<br>
+                            <input type="radio" name="1_2c" id="9.2c" value="No se" >No sé<br>
+                         
+                    </div>
+
+                </div>
+
+                
+
+                <div class="form-group">
+
+                    <label>9.3. Conoces o haz oído hablar de...</label> <br> <br>
+                    <div align="justify">
+                        <label>a. La Universidad Laboral en Línea de la CDMX (UNILAB)?</label><br>
+                            <input type="radio" name="1_3a" id="9.3a" value="Si" >Sí<br>
+                            <input type="radio" name="1_3a" id="9.3a" value="No" >No<br>
+                        
+                    </div>
+
+                     <div align="justify">
+                        <label>b. ¿El Programa Educación por Tí?</label><br>
+                            <input type="radio" name="1_3b" id="9.3b" value="Si" >Sí<br>
+                            <input type="radio" name="1_3b" id="9.3b" value="No" >No<br>
+                        
+                    </div>
+
+                     <div align="justify">
+                        <label>c. ¿El Bachillerato en Línea de la SEP?</label><br>
+                            <input type="radio" name="1_3c" id="9.3c" value="Si" >Sí<br>
+                            <input type="radio" name="1_3c" id="9.3c" value="No" >No<br>
+                        
+                    </div>
+
+                    <div align="justify">
+                        <label>d. ¿Los programas de educación para personas adultas del INEA?</label><br>
+                            <input type="radio" name="1_3d" id="9.3d" value="Si" >Sí<br>
+                            <input type="radio" name="1_3d" id="9.3d" value="No" >No<br>
+                        
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <button id="validador" type="submit" class="btn btn-main btn-group-justified">Finalizar</button>
+
+                </div>
+
+            </form>
+
+        </div>
+			
+	</div>
+
+    <form action="{{url('/usuario/inicio')}}">
+    <input type="submit" class="btn btn-danger" value="Salir de la encuesta" />
+    </form>
+
+</main>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+    var idleTime = 0;
+    $(document).ready(function () {
+    //Increment the idle time counter every minute.
+    var idleInterval = setInterval(timerIncrement, 60000); // 1 minute
+
+    //Zero the idle timer on mouse movement.
+    $(this).mousemove(function (e) {
+        idleTime = 0;
+    });
+    $(this).keypress(function (e) {
+        idleTime = 0;
+    });
+});
+
+function timerIncrement() {
+    idleTime = idleTime + 1;
+    if (idleTime > 3) { // 20 minutes
+        window.location.href = "{{url('/usuario/logout')}}";
+    }
+}
+</script>
+</body>
+</html>

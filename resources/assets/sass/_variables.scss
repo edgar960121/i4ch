@@ -1,0 +1,107 @@
+/**
+ * $variable
+ *
+ * Variable de fuente primaria de sitio
+ *
+ */
+$base-font-family:           Helvetica, Arial, sans-serif !important;
+
+
+
+/**
+ * $variable
+ *
+ * Variables de colores base de sitio
+ *
+ */
+$base-color:            #1d1d1b;
+$base-color-80:         #2C3031;
+$base-color-60:         #666666;
+$base-color-50:         #808080;
+$base-color-40:         #999999;
+$base-color-20:         #cccccc;
+$base-color-10:         #dddddd;
+$base-color-5:          #efefef;
+$base-color-4:          #F7F7F7;
+$base-color-3:          #F9F9F9;
+$base-color-2:          #FAFAFA;
+$base-color-0:          #ffffff;
+
+
+$color-sidebar:          #E4E6E9;
+
+
+
+/**
+ * $variable
+ *
+ * Variable de color de texto
+ *
+ */
+$font-color-a:          $base-color-80;
+$font-color-b:          $base-color-50;
+$font-color-c:          $base-color-20;
+
+
+
+/**
+ * $variable
+ *
+ * Variables de colores principales del sitio y sus oscurecimientos en hover
+ *
+ */
+$color-main:            #FF149B; //Magenta
+
+
+$color-b:               #00BFB3; //Turquesa
+
+
+$color-c:               #0077C8; //Azul
+
+
+$color-d:               #702082; //Morado
+
+
+$color-e:               #D80000; //Rojo
+
+
+
+/**
+ * $variable
+ *
+ * Variables de asignación de tamaño de texto por tamaño de dispositivo
+ *
+ */
+$font-size-base:        18px;
+
+
+
+/**
+ * $variable
+ *
+ * Numero báse de proporciones
+ *
+ */
+$base-number:           7px;
+
+
+
+/**
+ * $variable
+ *
+ * Variables de estilos de bordes
+ *
+ */
+$base-border:               solid 1px $base-color-5;
+$custom-border:             solid 1px $base-color-10;
+
+
+
+/**
+ * $variable
+ *
+ * Variables de sombras
+ *
+ */
+$base-shadow:               0 0 3px $base-color-40;
+$custom-shadow:             0 0 8px $base-color-10;

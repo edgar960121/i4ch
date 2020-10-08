@@ -1,0 +1,129 @@
+.sidebar {
+  padding: 0;
+  background-color: #F2F2F2;
+  border-right: solid 1px $base-color-10;
+  .sidebar-box {
+    .shortcuts {
+      height: 50px;
+      padding: 5px;
+      border-bottom: solid 1px $base-color-10;
+      .opts {
+        button {
+          width: 47px;
+          padding: 6px;
+          border-radius: 0;
+          color: transparent;
+        }
+      }
+    }
+
+    .nav {
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        > li {
+          a {
+            display: block;
+          }
+          > ul {
+            margin-left: $base-number*4;
+            border-left: dashed 1px $base-color-20;
+          }
+        }
+      }
+    }
+  }
+
+  .parent {
+    border-bottom: solid 1px $base-color-10;
+    font-size: 15px;
+    > a {
+      border-bottom: solid 1px $base-color-10;
+      padding: $base-number*1.5 $base-number*2;
+      text-decoration: none !important;
+      color: $base-color-60;
+      i {
+        font-size: 18px;
+        width: $base-number*4;
+        text-align: center;
+        vertical-align: top;
+      }
+      span {
+        display: inline-block;
+        padding-left: $base-number*0.5;
+        width: calc(100% - 33px);
+      }
+    }
+    &.active {
+      > a {
+        color: $base-color-80;
+        i {
+          color: $color-main;
+        }
+        span {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+  .active {
+    > a {
+      background-color: #fcfcfc;
+    }
+  }
+  .child {
+    font-size: 13px;
+    > a {
+      color: $base-color-60;
+      padding: $base-number $base-number*2 $base-number $base-number*3;
+      border-bottom: solid 1px $base-color-10;
+      display: block;
+      position: relative;
+      &:before {
+        left: 0;
+        position: absolute;
+        top: 50%;
+        margin-top: -1px;
+        content: '';
+        width: 10px;
+        height: 2px;
+        border-bottom: dashed 1px $base-color-20;
+      }
+    }
+    &.active {
+      > a {
+        font-weight: 600;
+        color: $base-color-80;
+        &:after {
+          left: 0;
+          position: absolute;
+          top: 50%;
+          margin-top: -5px;
+          content: '';
+          border-style: solid;
+          border-color: transparent;
+          border-image: initial;
+          border-width: 5px 8px;
+          border-left-color: $base-color;
+        }
+      }
+    }
+    &:last-of-type {
+      > a {
+        border: none;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-xs-max){
+  .sidebar {
+    display: none;
+    height: 100% !important;
+    width: 100% !important;
+    &.active {
+      display: block;
+    }
+  }
+}

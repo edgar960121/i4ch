@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Capital Humano - Olvidaste tu contraseña</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% include 'partials.favicon' %}
+
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+	<link rel="stylesheet" href="{{asset('/') }}assets/template/css/app.css?v={{ date().timestamp }}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    
+</head>
+<body class="login-body">
+
+{% include 'partials.header' %}
+<main id="main-login" class="row">
+	<div class="login-content">
+		<div class="pane pane-basic login-box"> 
+			<div class="pane-header">
+				<h2>
+					Olvidaste tu contraseña
+				</h2>
+			</div>
+			<form method="post" action="{{ url('/servicio/olvido') }}">
+				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+				<div class="form-group">
+					<label>Correo electrónico:</label>
+					<input type="text" name="mail" class="form-control" placeholder="Dirección de correo electrónico" value="{{ request.mail }}">
+				</div>
+				<div class="g-recaptcha" data-sitekey="6Lfq3V4UAAAAAEeDLEy8KbASAMJJK0hX_CFbZTiN"></div>
+				<hr>
+
+				<div class="form-group">
+					<button class="btn btn-main btn-group-justified">
+						<i class="fa fa-envelope"></i>
+						Enviar mensaje de recuperación
+					</button>
+				</div>
+			</form>
+            {% if app.session.has('Current.message') %}
+			<div class="alert {{ app.session.get('Current.message.class') }}" role="alert">
+                {{ app.session.get('Current.message.normal') }}
+			</div>
+            {% endif %}
+		</div>
+		<div class="aditional">
+			<a href="{{asset('/') }}login" class="">
+				¿Ya tienes una cuenta? <b>Inicia sesión</b>
+			</a>
+		</div>
+		<div class="identity">
+			<hr>
+			<div class="item">
+				<img src="{{asset('/') }}assets/template/images/Logo_CDMX.png" width="170" alt="Secretaría de Obras de la CDMX">
+				<img width="100" height="30" src="{{asset('/') }}assets/template/images/Logo_Dependencia_n.png" width="170" alt="Secretaría de Finanzas de la CDMX">
+            </div>
+			<hr>
+		</div>
+	</div>
+</main>
+
+<div class="cover">
+	<img src="{{asset('/') }}images/decoration.png" alt="">
+</div>
+<script src='https://www.google.com/recaptcha/api.js?hl=es'></script>
+<script type="text/javascript" src="/assets/template/js/jquery.js"></script>
+<script type="text/javascript" src="/assets/template/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/assets/template/js/ui-functions.js"></script>
+
+</body>
+</html>

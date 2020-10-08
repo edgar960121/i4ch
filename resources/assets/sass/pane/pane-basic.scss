@@ -1,0 +1,26 @@
+.pane-basic {
+  padding: $base-number*3;
+  .pane-header {
+    margin-bottom: $base-number*3;
+  }
+  .pane-body {
+    color: $font-color-b;
+    p, ul, ol {
+      //font-weight: 300;
+      font-size: 16px;
+      margin-bottom: $base-number*3;
+      a {
+
+      }
+    }
+    ul, ol {
+      li {
+        margin-bottom: $base-number;
+      }
+    }
+  }
+}
+
+.pane-body-tree {
+  overflow: hidden;
+}

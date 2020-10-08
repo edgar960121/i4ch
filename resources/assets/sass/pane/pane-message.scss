@@ -1,0 +1,15 @@
+.pane-message {
+  margin-bottom: $base-number*3;
+  .pane-header {
+    position: relative;
+    margin-bottom: $base-number*2;
+    &:after {
+      font-family: FontAwesome;
+      content: "\f111";
+      position: absolute;
+      font-size: 30px;
+      right: 0;
+      top:-10px;
+    }
+  }
+}

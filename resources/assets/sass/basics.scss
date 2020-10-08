@@ -1,0 +1,107 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #F3F6F9;
+  main {
+    margin: $base-number*8 0 0 !important;
+    position: relative;
+  }
+}
+
+a {
+  &.base-anchor {
+    color: $color-main;
+    text-decoration: underline;
+    &:hover {
+      color: darken($color-main, 20);
+    }
+  }
+}
+
+.content {
+  p, ul, ol {
+    a {
+      color: $color-main;
+      text-decoration: underline;
+      &:hover {
+        color: darken($color-main, 20);
+      }
+    }
+    b {
+      font-weight: 600;
+    }
+  }
+}
+
+.form-group {
+  .form-control {
+    font-size: 16px;
+    height: 37px;
+    padding-left: 7px;
+  }
+}
+
+h1, h2, h3, h4 {
+  padding: 0;
+  margin: 0;
+}
+
+.text-lighter {
+  font-weight: 300;
+}
+
+.text-bolder {
+  font-weight: 600;
+}
+
+.no-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.supertitle {
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-block;
+  position: relative;
+  margin-bottom: $base-number;
+  text-transform: uppercase;
+  color: $base-color-60;
+  &:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: $color-main;
+    margin-top: 1px;
+  }
+}
+.subtitle {
+  color: $base-color-60;
+  font-weight: 600;
+  font-size: 17px;
+  margin-bottom: $base-number*2;
+  &.in-text {
+    margin-bottom: $base-number*2;
+  }
+}
+
+.btn {
+  font-size: 16px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  border-radius: 4px;
+}
+
+.btn-main {
+  background-color: $color-main;
+  color: $base-color-0;
+  &:hover {
+    background-color: darken($color-main, 20);
+    color: $base-color-0;
+  }
+}
+
+.selectize-dropdown.selectized.dropdown-empty-message {
+  display: none !important;
+}

@@ -1,0 +1,54 @@
+<html>
+<head>
+    <title>Capital Humano - Secretaría de Finanzas</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+       {% include 'partials.meta' %}
+    {% include 'partials.favicon' %}
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <img src="{{url('/assets/template/images/Logo_ch.svg')}}" width="80" alt="">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <div class="header-logo-name" style="margin-left:-3px">
+        <span><b>Capital Humano</b></span></br>
+        <small ><b>Secretaría de Administración y Finanzas</b></small>
+        <!--style="color:#CDCDCD;"-->
+      </div>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <a href="{{ url('/usuario/inicio') }}" type="button" class="btn btn-primary" style="border-color:#31b700; background-color: #31b700;" >Regresar</a>
+    </form>
+  </div>
+</nav>
+        <h2>Descarga masiva de recibos</h2>
+        <h6>Ingrese el UUID</h6>
+        <form target="_blank" action="{{ url('/imprimirpdf') }}" method="post">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <input type="hidden" name="uuid" value="{{ recibo.UUID }}">
+                                    <input type="text" name="uuid" class="form-control" placeholder="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX,"><br>
+                                    {% if message is defined %}
+                                    <div class="alert {{ message.class }}" role="alert">
+                                        {{ message.normal }}
+                                    </div>
+                                {% endif %}
+                                    <button class="btn btn-primary" style="border-color:#31b700; background-color: #31b700;">
+                                        Buscar
+                                    </button>
+                                </form>
+                                <!--<input type="hidden" name="anio" value="{{ recibos.anio }}">
+                                    <input type="hidden" name="collection" value="{{ recibo.collection }}">-->
+
+</div>
+    
+</body>
+</html>

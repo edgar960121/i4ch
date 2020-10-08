@@ -1,0 +1,28 @@
+.pane-images {
+  .images {
+    .card {
+      border: $base-border;
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: $base-number*2;
+      .icon{
+        text-align: center;
+        img {
+          max-width: 100%;
+        }
+      }
+      .icon-name{
+        text-align: center;
+        padding-top: 10px;
+      }
+    }
+    .card-icon {
+      .icon {
+        filter: grayscale(100%);
+      }
+    }
+    .card-image {
+
+    }
+  }
+}

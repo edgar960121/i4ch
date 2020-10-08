@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+</head>
+  <style type="text/css">    
+@page {
+     margin: 20px;
+    }
+body{
+     font-family: Arial, Helvetica, sans-serif;
+ }
+.color{
+            background-color: #666666;
+            color: #ffffff; 
+            
+        }
+        .tg  {border-collapse:collapse;border-spacing:0; width: 100%;}
+        .tg td{font-family:Arial, sans-serif;font-size:8px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-top-width:1px;border-bottom-width:1px;}
+        .tg th{font-family:Arial, sans-serif;font-size:8px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-top-width:1px;border-bottom-width:1px;}
+        .tg2  {border: #e51287 3px solid; width: 100%; border-collapse: collapse}
+        
+        .tg2 td{border-color: #e51287; font-family:Arial, sans-serif;font-size:12px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-top-width:0px;border-bottom-width:0px;}
+        .tg2 th{ border-color:#e51287;font-family:Arial, sans-serif;font-size:12px;font-weight:normal;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-top-width:0px;border-bottom-width:0px;}
+
+        
+        .tg .tg-yw4l{vertical-align:top}
+        .titulos_tabla{color:#666666 !important;}
+        .lateralizq{border-left-width:1px !important;}
+        .lateralder{border-right-width:1px !important;}
+        .footer {
+            bottom: 20px;
+        }
+        .pagenum:before {
+            content: counter(page);
+        }
+
+        
+        .footer {
+            width: 100%;
+            text-align: center;
+            position: fixed;
+        }
+
+        .monospaceType{
+        font-family: Courier, monospace !important;
+        }
+
+  </style>
+	<div style="width:100%; display: block; ">
+        <div style="text-align:center; font-size:10px;"></div><br>
+         <div style="width:100%;"> 
+            <div style="text-align:left; float: left; width:29%; vertical-align: text-top"> <img src="{{ url('images/cdmx_cons.png') }}" style="width:550px;">
+            </div>
+            <div style="text-align:left; font-size:10px; float: left; width:69%; vertical-align: text-top"></div>
+         </div>
+         <br>
+         <br>
+    </div>
+
+    {% block detalle %}{% endblock %}
+    <br>
+    <div style="width:100%; display: block; ">
+        <table class="tg">
+            <tr>
+        </tr>
+        </table>
+        </div>
+</html>

@@ -1,0 +1,62 @@
+.inline-edit {
+  margin-bottom: $base-number;
+  padding-bottom: $base-number;
+  border-bottom: $base-border;
+  .input-box {
+    .input-group {
+      .btn {
+        padding: 6px 12px;
+        font-size: 14px;
+      }
+    }
+  }
+  .data-box {
+    .info {
+      display: inline-block;
+      width: $base-number*22;
+      .name {
+        font-weight: 600;
+        color: $base-color-60;
+      }
+    }
+    .data {
+      display: inline-block;
+      .value {
+
+      }
+      .to-edit-inline {
+        color: $color-c;
+        margin-left: $base-number;
+      }
+    }
+  }
+
+  .simple {
+    label {
+      display: inline-block;
+      width: $base-number*22;
+      font-weight: 600;
+      color: $base-color-60;
+    }
+    .input {
+      display: inline-block;
+      width: calc(100% - 167px);
+    }
+  }
+  &:last-of-type {
+    border: none;
+  }
+}
+
+
+.inline-search {
+  .form-control {
+    height: 38px;
+    padding-left: 10px;
+  }
+  .input-group-btn {
+    .btn {
+      background-color: $base-color-20;
+    }
+  }
+}

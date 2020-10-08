@@ -1,0 +1,54 @@
+.breadcrumb {
+  border-radius: 0;
+  background-color: transparent;
+  padding: 7px 15px 2px;
+  margin: 0;
+  border-bottom: solid 1px $base-color-5;
+  > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-table;
+    > li {
+      float: left;
+      padding-right: $base-number*3;
+      position: relative;
+      b {
+        i {
+          color: $base-color-60;
+          font-size: 22px;
+          margin-right: $base-number*0.5;
+        }
+      }
+      a {
+        margin-right: $base-number;
+        line-height: 100%;
+        font-size: 14px;
+        margin-top: 6px;
+        display: block;
+      }
+      &:after {
+        content: '\f105';
+        font-family: FontAwesome;
+        position: absolute;
+        top: 2px;
+        right: 10px;
+      }
+      &:first-of-type {
+        a {
+          padding: 0;
+        }
+      }
+      &:last-of-type {
+        a {
+          color: $base-color;
+          cursor: default;
+          text-decoration: none !important;
+        }
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{% extends 'templates.app' %}
+
+{% block content %}
+    <div class="pane pane-basic">
+        <div class="pane-header">
+            <h2>Información de la cuenta</h2>
+        </div>
+        {% if app.session.has('Current.message') %}
+            <div class="alert {{ app.session.get('Current.message.class') }}" role="alert">
+                {{ app.session.get('Current.message.normal') }}
+            </div>
+        {% endif %}
+        <div class="pane-body">
+            <div class="row user-box">
+                <div class="col-sm-5 col-md-4 col-lg-3">
+                    <div class="user-image">
+                        <img src="{{ asset('assets/template/images/avatar-b.jpg') }}" alt="User pic">
+                    </div>
+                </div>
+                <div class="col-sm-7 col-md-8 col-lg-9">
+                    {% for element in form %}
+                        <div class="inline-edit">
+                            <form action="{{ url('/usuario/cuenta/actualizar') }}" method="post">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                <div class="input-box" style="display: none;">
+                                    {% if element.type == 'password' %}
+                                        <div class="groupal form-group">
+                                            <label for="">{{ element.name }}:</label>
+                                            <input class="form-control" name="{{ element.bdname }}"
+                                                   type="{{ element.type }}"
+                                                   value="{{ element.value }}">
+
+                                            <label for="">Confirma contraseña</label>
+                                            <input class="form-control" name="retype" type="{{ element.type }}"
+                                                   value="{{ element.value }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-success">Guardar</button>
+                                            <button type="button" class="btn btn-danger to-cancel-inline">Cancelar
+                                            </button>
+                                        </div>
+                                    {% else %}
+                                        <div class="simple">
+                                            <label for="">{{ element.name }}:</label>
+                                            <div class="input">
+                                                <div class="input-group">
+                                                    <input class="form-control" name="{{ element.bdname }}"
+                                                           type="{{ element.type }}"
+                                                           value="{{ element.value }}">
+                                                    <span class="input-group-btn">
+                                                    <button type="submit" class="btn btn-success">
+                                                        <i class="fa fa-check"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger to-cancel-inline">
+                                                        <i class="fa fa-times"></i>
+                                                    </button>
+                                                </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <div class="data-box">
+                                    <div class="info">
+                                        <strong class="name">{{ element.name }}:</strong>
+                                    </div>
+                                    <div class="data">
+                                        {% if element.type == 'password' %}
+                                            Cambiar contraseña
+                                        {% else %}
+                                            <span class="value">{{ element.value }}</span>
+                                        {% endif %}
+                                        <a href="#" class="to-edit-inline"><i class="fa fa-pencil"></i></a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block js %}
+
+{% endblock %}

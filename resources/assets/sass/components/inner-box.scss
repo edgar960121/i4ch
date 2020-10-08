@@ -1,0 +1,41 @@
+.inner-box {
+  .box-title {
+    margin-bottom: $base-number*2;
+  }
+  .box-body {
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .list-group {
+      > .list-group-item {
+        margin: 0;
+        border-bottom: none;
+        &:last-of-type {
+          border-bottom: solid 1px #ddd;
+        }
+        .name {
+          color: $base-color;
+          font-weight: 500;
+          i {
+            color: #808080;
+            margin-right: 7px;
+          }
+        }
+        .action {
+          opacity: 0.6;
+          width: 30px;
+          text-align: center;
+          float: right;
+          i {
+            color: $color-e;
+          }
+          &:hover {
+            opacity: 0.9;
+          }
+        }
+      }
+    }
+  }
+}

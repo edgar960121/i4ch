@@ -1,0 +1,118 @@
+{% extends 'templates.app' %}
+
+{% block content %}
+    <div class="pane pane-basic">
+        <div class="pane-header">
+            <h2>Búsqueda de empleados</h2>
+             {% if message is defined %}
+             <div class="alert {{ message.class }}" role="alert">
+               {{ message.normal }}
+            </div>
+            {% endif %}
+        </div>
+        <div class="pane-body">
+            <form action="{{ url('/usuario/cau/busqueda') }}" method="post">
+                <div class="form-group">
+
+                    <div class="input-group">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="text" class="form-control" name="filtro" id="filtro" placeholder="Nombre completo, correo electrónico o CURP" value="{{ filtro }}">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+        <div class="pane-body">
+            <br>
+            {% if empleados is defined %}
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>CURP/RFC</th>
+                        <th>Correo</th>
+                        <th>OCR</th>
+                        <th>Status</th>
+                        <th>Acciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for empleado in empleados %}
+                        <tr>
+                            <td>{{ empleado.nombreCompleto }}</td>
+                            <td>{{ empleado.CURP }}<br>{{ empleado.RFC }}</td>
+
+                            <td>
+                                <div class="inline-edit">
+                                    <form action="{{ url('/usuario/cau/actualizaMail') }}" method="post">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <div class="input-box" style="display: none;">
+                                            <div class="simple">
+                                                <div class="input">
+                                                    <div class="input-group">
+                                                        <input class="form-control" name="mail"
+                                                               type="text"
+                                                               value="{{ empleado.mail }}">
+                                                        <input type="hidden" name="id" value="{{ empleado.cdmxId }}">
+                                                        <span class="input-group-btn">
+                                                    <button type="submit" class="btn btn-success">
+                                                        <i class="fa fa-check"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger to-cancel-inline">
+                                                        <i class="fa fa-times"></i>
+                                                    </button>
+                                                </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="data-box">
+                                            <div class="data">
+                                                <span class="value">{{ empleado.mail }}</span>
+                                                {% if empleado.statusRegister != 'Cancelado' %}
+                                                    <a href="#" class="to-edit-inline"><i class="fa fa-pencil"></i></a>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </td>
+                            <td>{{ empleado.OCR }}</td>
+                            <td>{{ empleado.statusRegister }}</td>
+                            <td>
+                                {% if empleado.statusRegister == 'Pendiente' %}
+                                    <form action="{{ url('/usuario/cau/activar') }}" method="post">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <input type="hidden" name="id" value="{{ empleado.cdmxId }}">
+                                        <input type="hidden" name="filtro" value="{{ filtro }}">
+                                        <button type="submit">
+                                            <i class="fa fa-check">&nbsp;</i>Activar
+                                        </button>
+                                    </form>
+                                    <a title="Activar" href="#" class="activate">
+                                        
+                                        <input type="hidden" value="{{ empleado.cdmxId }}">
+                                    </a>
+                                {% endif %}
+                            </td>
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    
+{% endblock %}
+
+

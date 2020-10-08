@@ -1,0 +1,18 @@
+<div class="box-title">
+	<h3>Permisos</h3>
+</div>
+<div class="box-body">
+	<ul class="list-group">
+        {% for role in roles %}
+			<li class="list-group-item">
+				<span class="name">
+					<i class="fa fa-unlock-alt"></i>
+					<span>{{ role.roleDescripcion }}</span>
+				</span>
+				<a class="delRole action" href="#"><i class="fa fa-trash"></i>
+					<input type="hidden" value="{{ role.role }}">
+				</a>
+			</li>
+        {% endfor %}
+	</ul>
+</div>

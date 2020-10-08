@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Capital Humano - Proceso finalizado</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% include 'partials.favicon' %}
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/template/css/app.css?v={{ date().timestamp }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+</head>
+<body class="login-body">
+
+{% include 'partials.header' %}
+<main id="main-login" class="row">
+    <div class="login-content">
+        <div class="pane pane-basic login-box">
+            <div class="pane-header text-center">
+                <h1><b>{{ app.session.get('Current.message.bold') }}</b></h1><br>
+                <h2>{{ app.session.get('Current.message.normal') }}</h2>
+            </div>
+            <div class="form-group">
+                <a href="{{ url('/usuario/inicio') }}" class="btn btn-main btn-group-justified">
+                    <i class="fa fa-check"></i>
+                    Volver al inicio
+                </a>
+            </div>
+        </div>
+        <div class="identity">
+            <hr>
+            <div class="item">
+                <img src="{{url('/assets/template/images/Logo_CDMX.png')}}" width="170" alt="Secretaría de Obras de la CDMX">
+                <img src="{{url('/assets/template/images/Logo_Dependencia.png')}}" width="170" alt="Secretaría de Finanzas de la CDMX">
+            </div>
+            <hr>
+        </div>
+    </div>
+</main>
+
+<div class="cover">
+    <img src="{{url('/images/decoration.png')}}" alt="">
+</div>
+
+<script type="text/javascript" src="{{url('/assets/template/js/jquery.js')}}"></script>
+<script type="text/javascript" src="{{url('/assets/template/js/bootstrap.min.js')}}"></script>
+<script type="text/javascript" src="{{url('/assets/template/js/ui-functions.js')}}"></script>
+
+</body>
+</html>

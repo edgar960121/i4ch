@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Encuesta de calidad del servicio</title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('/') }}assets/template/css/app.css?v={{ date().timestamp }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+</head>
+<body>
+<header id="header-app" class="header-app">
+    <div class="header-content">
+        <div class="header-logo">
+            <a href="{{url('/')}}">
+                <div class="header-logo-icon">
+                    <!--<i class="fa fa-laptop"></i>-->
+                    <img src="{{url('/assets/template/images/Logo_ch.svg')}}" width="80" alt="">
+                </div>
+                <div class="header-logo-name" style="margin-left:20px">
+                    <span class="hidden-xs">Capital Humano</span>
+                    <span class="visible-xs">Capital Humano</span>
+                    <small class="hidden-xs">Secretaría de Administración y Finanzas</small>
+                    <small class="visible-xs">SEFIN CDMX</small>
+                </div>
+            </a>
+        </div>
+        <div class="header-show-nav">
+            <button class="btn btn-default" id="show-sidebar" type="button">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <div class="header-options">
+            <ul>
+                <li class="dropdown user">
+                    <a  class="dropdown-toggle" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+                        <span class="pic"><img src="{{ asset('assets/template/images/avatar-b.jpg') }}" alt="User pic"></span>
+                        <span class="name">{{ [app.session.get('Session.nombres')]|ucwords}} <span class="hidden-xs">{{ [app.session.get('Session.paterno'),app.session.get('Session.materno')]|ucwords }}</span></span>
+                      
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<main class="row">
+
+
+
+	<div class="login-content">
+		<div class="pane pane-basic login-box">
+			<div class="pane-header">
+				<h2 align="center">Cuestionario de Benificiaros de UNILAB</h2>
+                <br>
+                <br>
+			</div>
+
+            <form  action= "{{ url('/dataEncuesta')}}" method="POST" >
+                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                 <input type="hidden" name="tipo" id="tipo" value="1">
+                <input type="hidden" name="modulo" id="modulo" value="13">
+
+            <div align="center">
+            <label>7. Valoración global de la UNILAB</label> <br> <br>
+            </div>
+            
+
+             <div class="form-group">
+
+                <label>7.1. En una escala del 1 al 6, en la que 1 es nada satisfecha/o y 6 es muy satisfecha/o</label><br>
+
+                <table cellspacing="50" cellpadding="10" style="width: 100%" border="3">
+
+                    <tr>
+                    <th style="width: 45%" rowspan="">  ¿Qué tan satisfecha/o estás con la UNILAB?</th>
+                    <th align="center" >Nada satisfecha/o</th> 
+                    <th colspan="4"></th>
+                    <th align="center">Muy satisfecha/o</th>
+                    </tr>
+                    
+
+                    <tr>
+                    <td></td>
+                    <td align="center" ><input type="radio" name = "1_1"id="1_1" value="1" required> 1 <br></td>
+                    <td align="center" ><input type="radio" name = "1_1"id="1_1" value="2" required> 2 <br></td>
+                    <td align="center" ><input type="radio" name = "1_1"id="1_1" value="3" required> 3 <br></td>
+                    <td align="center" ><input type="radio" name = "1_1"id="1_1" value="4" required> 4 <br></td>
+                    <td align="center" ><input type="radio" name = "1_1"id="1_1" value="5" required> 5 <br></td>
+                    <td align="center" ><input type="radio" name = "1_1"id="1_1" value="6" required> 6 <br></td>
+                    </tr>
+
+                </table>
+                <br>
+                <label>7.2 En una escala del 1 al 6, en la que 1 es nada probable y 6 es muy probable</label>
+
+             </div>
+             
+           <div class="form-group">
+
+                
+                     <table cellspacing="50" cellpadding="10" style="width: 100%" border="3">
+
+                    <tr>
+                    <th style="width: 45%" rowspan=""> ¿Qué tan probable es que recomiendes a otras compañeras o compañeros ingresar a la UNILAB para continuar sus estudios?</th>
+                    <th align="center" >Nada probable</th> 
+                    <th colspan="4"></th>
+                    <th align="center">Muy probable</th>
+                    </tr>
+                    
+
+                    <tr>
+                    <td></td>
+                    <td align="center" ><input type="radio" name = "1_1a"id="1_1a" value="1" required> 1 <br></td>
+                    <td align="center" ><input type="radio" name = "1_1a"id="1_1a" value="2" required> 2 <br></td>
+                    <td align="center" ><input type="radio" name = "1_1a"id="1_1a" value="3" required> 3 <br></td>
+                    <td align="center" ><input type="radio" name = "1_1a"id="1_1a" value="4" required> 4 <br></td>
+                    <td align="center" ><input type="radio" name = "1_1a"id="1_1a" value="5" required> 5 <br></td>
+                    <td align="center" ><input type="radio" name = "1_1a"id="1_1a" value="6" required> 6 <br></td>
+                    </tr>
+
+                </table>
+                <br>
+
+                <label>7.3. ¿Qué palabra describe mejor a la Universidad Laboral en Línea de la Ciudad de México?</label> <br> <br>
+                <div align="justify">
+
+                    <input type="text" name="7.3" id="7_3" required>
+
+                <br>
+                </div>
+            </div>
+
+            
+
+                <div class="form-group">
+                    <button id="validador" type="submit" class="btn btn-main btn-group-justified">Finalizar</button><br>
+                    <input type="submit" class="btn btn-danger" value="Finalizar" />
+                </div>
+
+            </form>
+
+            </div>
+			
+		</div>
+	</div>
+
+    <form action="{{url('/usuario/inicio')}}">
+    
+    </form>
+
+</main>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+   
+   $("#validador").click(function() {
+
+    Swal.fire({
+     title: "Gracias!",
+     text: "Muchas gracias por tu tiempo!Si cuentas con mayores comentarios, remítalos al correo profesionalizacion@finanzas.cdmx.gob.mx",
+     type: "success",
+     timer: 9000
+     });
+
+       
+   });
+
+});
+
+</script>
+
+<script type="text/javascript">
+    var idleTime = 0;
+    $(document).ready(function () {
+    //Increment the idle time counter every minute.
+    var idleInterval = setInterval(timerIncrement, 60000); // 1 minute
+
+    //Zero the idle timer on mouse movement.
+    $(this).mousemove(function (e) {
+        idleTime = 0;
+    });
+    $(this).keypress(function (e) {
+        idleTime = 0;
+    });
+});
+
+function timerIncrement() {
+    idleTime = idleTime + 1;
+    if (idleTime > 3) { // 20 minutes
+        window.location.href = "{{url('/usuario/logout')}}";
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+.section-counters {
+  padding-top: $base-number*2;
+  .counter-item {
+    text-align: center;
+    margin-bottom: $base-number*6;
+    .counter-icon {
+      img {
+        width: 35%;
+      }
+    }
+    .counter-number {
+      font-size: 58px;
+      font-weight: 600;
+    }
+    .counter-name {
+      font-size: 20px;
+    }
+  }
+}
+
+@media (max-width: $screen-xs-max) {
+  .section-counters {
+    .counter-item {
+      margin-bottom: $base-number*4;
+      .counter-icon {
+        img {
+
+        }
+      }
+      .counter-number {
+
+      }
+      .counter-name {
+
+      }
+    }
+  }
+}

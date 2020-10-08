@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Capital Humano - Inicia tu sesión</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% include 'partials.meta' %}
+    {% include 'partials.favicon' %}
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('/') }}assets/template/css/app.css?v={{ date().timestamp }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
+    
+
+</head>
+<body class="login-body">
+
+{% include 'partials.header' %}
+<main id="main-login" class="row">
+    <div class="login-content">
+        <div class="pane pane-basic login-box">
+            <div class="pane-header">
+                <h2>
+                    Iniciar sesión
+                </h2>
+            </div>
+            <form method="post" action="{{ url('/usuario/inicio') }}">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <div class="form-group">
+                    <label>Correo electrónico:</label>
+                    <input name="loginmail" type="text" class="form-control" placeholder="Dirección de correo electrónico">
+                </div>
+                <div class="form-group">
+                    <label>Contraseña:</label>
+                    <input name="password" type="password" class="form-control" placeholder="Ingresa tu contraseña">
+                </div>
+                <div class="forgot">
+                    <a href="{{ url('/servicio/olvido') }}" class="base-anchor">
+                        Olvidé mi contraseña
+                    </a>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-main btn-group-justified">
+                        Entrar <i class="fa fa-sign-in"></i>
+                    </button>
+                </div>
+            </form>
+            {% if app.session.has('Message') %}
+                <div class="alert {{ app.session.get('Message.class')}}">
+                    <strong>{{ app.session.get('Message.bold')}}</strong> {{ app.session.get('Message.normal')}}
+                </div>
+            {% endif %}
+        </div>
+        <div class="aditional">
+            <a href="{{ url('/servicio/registro') }}" class="">
+                ¿Aún no tienes cuenta? <b>Regístrate</b>
+            </a>
+            <a href="{{ url('/servicio/reenviar') }}" class="">
+                No recibí el correo de confirmación
+            </a>
+            <a href="{{ url('/acerca-de/preguntas-frecuentes') }}" class="">
+                ¿Necesitas Ayuda? Consulta nuestras <b>Preguntas Frecuentes</b>
+            </a>
+        </div>
+        <div class="identity">
+            <hr>
+            <div class="item">
+                <img src="{{asset('/') }}assets/template/images/Logo_CDMX.png" width="170" alt="Secretaría de Obras de la CDMX">
+                <img width="100" height="30" src="{{asset('/') }}assets/template/images/Logo_Dependencia_n.png" width="170" alt="Secretaría de Finanzas de la CDMX">
+            </div>
+            <hr>
+        </div>
+    </div>
+</main>
+
+<div class="cover">
+    <img src="{{asset('/') }}images/decoration.png" alt="">
+</div>
+
+<script type="text/javascript" src="{{asset('/') }}assets/template/js/jquery.js"></script>
+<script type="text/javascript" src="{{asset('/') }}assets/template/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{asset('/') }}assets/template/js/ui-functions.js"></script>
+
+<!-- Start of Rocket.Chat Livechat Script -->
+<script type="text/javascript">
+(function(w, d, s, u) {
+w.RocketChat = function(c) { w.RocketChat._.push(c) }; w.RocketChat._ = []; w.RocketChat.url = u;
+var h = d.getElementsByTagName(s)[0], j = d.createElement(s);
+j.async = true; j.src = '{{ env("ROCKET_SERVER") }}/packages/rocketchat_livechat/assets/rocketchat-livechat.min.js?_=201702160944';
+h.parentNode.insertBefore(j, h);
+})(window, document, 'script', '{{ env("ROCKET_SERVER") }}/livechat');
+</script>
+<!-- End of Rocket.Chat Livechat Script -->
+
+</body>
+
+<!--<script type="text/javascript">
+
+    Swal.fire({
+
+          title: '<H1>Video tutorial recuperación de contraseña</H1>',
+          width: 1100,
+          confirmButtonText: 'Salir',
+          
+          html:'<video width="1024px" autoplay style="width: 100%;" controls src="{{url("/images/video/changepss.mp4")}}"></video>'
+    }); 
+    </script>-->
+
+</html>

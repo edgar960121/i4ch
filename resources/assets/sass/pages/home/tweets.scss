@@ -1,0 +1,76 @@
+.section-tweets {
+  padding-top: $base-number*2;
+  .slider-tweets {
+    padding:  0;
+    .item {
+      padding: $base-number*2;
+    }
+  }
+}
+
+.tweet {
+  background-color: $base-color-0;
+  border-radius: $base-number*2;
+  box-shadow: $custom-shadow;
+  padding: $base-number*2;
+  .tweet-head {
+    width: 100%;
+    display: table;
+    >div {
+      float: left;
+    }
+    .image {
+      width: $base-number*8;
+      img {
+        width: 100%;
+        border-radius: 50%;
+      }
+    }
+    .name {
+      width: calc(100% - 56px);
+      font-size: 20px;
+      font-weight: 600;
+      padding: $base-number $base-number 3px;
+      line-height: 100%;
+    }
+    .username {
+      width: calc(100% - 56px);
+      padding: 0 $base-number $base-number;
+      font-size: 16px;
+      color: $base-color-40;
+      line-height: 100%;
+    }
+  }
+  .tweet-content {
+    display: block;
+    padding: $base-number*2 0;
+  }
+}
+
+/*
+.owl-carousel {
+  .owl-dots {
+    padding: $base-number*2 0;
+    text-align: center;
+    .owl-dot {
+      display: inline-block;
+      span {
+        background-color: $base-color-40;
+        border-radius: 20px;
+        display: block;
+        height: 12px;
+        margin: 5px 7px;
+        opacity: 0.5;
+        width: 12px;
+      }
+      &.active {
+        span {
+          background-color: $base-color-60;
+          width: 13px;
+          height: 13px;
+        }
+      }
+    }
+  }
+}
+*/

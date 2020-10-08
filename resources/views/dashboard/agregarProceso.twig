@@ -1,0 +1,33 @@
+{% extends 'templates.app' %}
+
+{% block content %}
+    <div class="pane pane-basic">
+        <div class="pane-header">
+            <h2>Tableros de Control CDMX</h2>
+            <h4>Agregar Proceso</h4>
+            <a href="{{ url('/usuario/dashboard/main') }}">
+            	<i class="fa fa-reply"></i> Regresar al tablero de control CDMX
+            </a>
+            {% if message is defined %}
+                <div class="alert {{ message.class }}" role="alert">
+                    {{ message.normal }}
+                </div>
+            {% endif %}
+        </div>
+        <div class="pane-body">
+            <form method="post" action="{{ url('/usuario/dashboard/process') }}">
+            	<input type="hidden" name="_token" value="{{ csrf_token() }}">
+            	Nombre del proceso<input type="text" name="nombre">
+
+            	<button class="btn btn-primary">Agregar</button>
+            </form>
+        </div>
+    </div>
+    <div class="pane-body">
+
+    </div>
+{% endblock %}
+
+{% block js %}
+    
+{% endblock %}
